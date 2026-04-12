@@ -1,0 +1,129 @@
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+#hero-left {
+    position: absolute;
+    height: auto;
+    width: auto;
+    /* width: 800px; */
+    left: 100px;
+    top: calc(50% - 150px);
+}
+
+#hero-right {
+    position: absolute;
+    height: auto;
+    width: auto;
+    right: 100px;
+    top: calc(50% - 225px);
+}
+
+.highlight {
+    background-color: #FF710C;
+    width: 7px;
+}
+
+#hero-highlight {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    height: 40px;
+}
+
+#hero-title {
+    position: relative;
+    left: 15px;
+    top: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+}
+
+#hero-desc {
+    position: relative;
+    left: 15px;
+    width: 600px;
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+}
+
+#get-started {
+    display: flex;
+    position: relative;
+    top: 20px;
+    left: 15px;
+    width: 225px;
+    height: 50px;
+    background-color: #232323;
+    border: solid 2px #383838;
+    border-radius: 8px;
+    font-size: 18px;
+    transition-duration: 300ms;
+    transition-property: border-color;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+#get-started:hover {
+    border-color: #FF710C;
+}
+
+#get-started > h2 {
+    margin: auto;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+}
+
+.feature { 
+    display: flex;
+    background: #FF710C;
+    border-radius: 20px;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+}
+
+.feature > h2 {
+    margin: auto;
+    font-size: 28px;
+    font-weight: bold;
+    color: #1C1C1C;
+    text-align: center;
+}
+
+#feature-top-flex {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#features-frame {
+    height: 100vh;
+    width: 100vw;
+}
+
+#features-container {
+    width: calc(100% - 200px);
+    margin: auto;
+}
+
+#features-title {
+    font-size: 36px;
+    color: white;
+}
+
+.features-subheading {
+    color: #FF710C;
+}
+
+.features-paragraph {
+    width: 1000px;
+    color: white;
+}

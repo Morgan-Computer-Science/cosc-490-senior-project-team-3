@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/dashboard.css') }}"/>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+        <h2 id="dash-heading">Dashboard</h2>
+
+        <div class="dashboard">
+
+            <div class="card gpa">
+                <h2 class="card-title">GPA</h2>
+                <h3 class="card-value">3.49</h3>
+            </div>
+
+            <div class="card progress">
+                <h2 class="card-title">Degree Progress</h2>
+                <h3 class="card-value">60%</h3>
+
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                </div>
+            </div>
+
+            <div class="card credits">
+                <h2 class="card-title">Credits</h2>
+                <h3 class="card-value">73 / 120</h3>
+
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%"></div>
+                </div>
+            </div>
+
+            <div class="card chat">
+                <h2 class="card-title" style="color: #FF710C">AI Agent Query</h2>
+                
+                <p class="chat-question">Please give me a schedule recommendation for the next semester.
+I am aiming to have a balanced workload that will not overwhelm me. 
+
+I want to take Computer Networks so please include that class and any other classes that balance around that.
+</p>
+
+                <p class="chat-response">
+                    Okay, based on your completed courses and the desire to take Computer Networks (COSC 349), here's a balanced schedule recommendation for your next semester:
+
+**Core Courses:**
+
+*   **COSC 349 - Computer Networks (3 Credits):**  This is your primary goal.  It's important to take this now to stay on track and it's a good foundational course.
+
+*   **COSC 281 - Discrete Structures (3 Credits):** This course is listed as a required course and is a good complement to Computer Networks as it provides the mathematical foundations for many concepts in computer science.
+
+**Supporting/Elective Course:**
+
+*   **MATH 331 - Applied Probability and Statistics (3 Credits):** Given your Math background, this is a logical and relatively manageable course.  It provides valuable skills applicable to various areas of computer science, including networks, data science, and AI. This will balance your schedule, and give your brain a break while still learning.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

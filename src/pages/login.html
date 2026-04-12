@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BearVisor AI - Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', path='/css/login.css') }}">
+</head>
+
+<body>
+
+<div class="landing-container">
+
+    <div class="brand">
+        <h1>BearViSor AI</h1>
+        <p>AI powered study tools to help students analyze and understand course materials faster.</p>
+    </div>
+
+    <div class="login-card">
+
+        <h2>Sign In</h2>
+
+        <form class="form" action="{{ url_for('login_endpoint') }}" method="POST">
+
+            <label>Email</label>
+            <input type="email" id="email" name="email" required>
+            <p class="invalid-input" id="email-invalid">Please type a valid email.</p>
+
+            <label>Password</label>
+            <input type="password" id="password" name="password" required>
+            <p class="invalid-input" id="password-invalid">Please type a password</p>
+
+            <button class="submit" type="submit">Login</button>
+            
+            <a href="{{ url_for('signup') }}"class="sign-up">Sign up</a>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script>
+    // email validation
+    const email_input = document.getElementById('email');
+
+    function valid_email() {
+        const invalid_text = document.getElementById('email-invalid');
+
+        const email = email_input.value.trim();
+        const expr = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (email.match(expr)) {
+            invalid_text.style.display = 'none';
+
+            return true;
+        }
+
+        invalid_text.style.display = 'block';
+
+        return false;
+    }
+
+    email_input.addEventListener('input', valid_email);
+
+    const password_input = document.getElementById('password');
+
+    function valid_password() {
+        const invalid_password = document.getElementById('password-invalid');
+
+        if (password_input.value.length < 1) {
+            invalid_password.style.display = 'block';
+
+            return false;
+        }
+
+        invalid_password.style.display = 'none';
+
+        return true;
+    }
+
+    const form = document.getElementsByClassName('form')[0];
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!valid_email() || !valid_password()) {
+            return;
+        }
+
+        form.submit();
+    })
+
+</script>
+</html>

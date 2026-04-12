@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>BearViSor admin panel</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/panel.css') }}"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+            <h1>Dashboard</h1>
+            <button onclick="fetchData()">Refresh</button>
+            </header>
+
+            <section class="cards">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p id="totalUsers">0</p>
+            </div>
+            <div class="card">
+                <h3>Active Sessions</h3>
+                <p id="activeSessions">0</p>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p id="revenue">$0</p>
+            </div>
+            </section>
+
+            <section class="table-section">
+            <h2>Recent Records</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                <!-- JS will populate -->
+                </tbody>
+            </table>
+            </section>
+        </div>
+    </body>
+
+    <script>
+        ITEM_LIMIT = 20;
+
+        async function fetch_table(table_name, offset=0) {
+            try {
+                // const response = await fetch('/api/v1/records', {
+                //     method: 'POST',
+                //     body: JSON.stringify({
+                //         table: table_name,
+                //         offset: offset,
+                //         n: ITEM_LIMIT
+                //     })
+                // });
+
+                const response = await fetch(`/api/v1/records?table=${table_name}&offset=${offset}&n=${ITEM_LIMIT}`);
+
+                const data = await response.json();
+
+                console.log('recv: ', data);
+            } catch (error) {
+                console.error('failed to fetch table: ', error)
+            }
+        }
+    </script>
+</html>

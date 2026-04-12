@@ -1,0 +1,186 @@
+/* Dark landing page background */
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#0e0e0e;
+    color:white;
+}
+
+/* Main layout */
+
+.landing-container{
+    height: calc(100vh - 200px);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 100px 120px;
+}
+
+
+/* Left side text */
+
+.brand {
+    max-width:400px;
+    padding-bottom:100px;
+}
+
+.brand h1 {
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.brand p {
+    color:#aaaaaa;
+    line-height:1.5;
+}
+
+
+/* Login Card */
+
+.login-card {
+    background:#1b1b1b;
+    padding:40px;
+    width:320px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.signup-card {
+    background: #1b1b1b;
+    padding: 40px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.login-card > h2 {
+    margin-bottom:25px;
+}
+
+.signup-card > h2 {
+    margin-bottom: 25px;
+}
+
+/* Form */
+
+.flex {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Inputs */
+
+.form label {
+    font-size:12px;
+    color:#aaa;
+}
+
+.form label > span {
+    display: none;
+    color: red;
+}
+
+.form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    background: #2b2b2b;
+    color: white;
+}
+
+.invalid-input {
+    display: none;
+    position: relative;
+    top: -15px;
+    height: 0px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: red;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.left {
+    width: 50%;
+}
+
+.right {
+    width: 50%;
+}
+
+/* password strength */
+
+#strength-frame {
+    display: none;
+    position: relative;
+    height: fit-content;
+    margin-top: 10px;
+    top: -10px;
+}
+
+#strength-title {
+    font-size: 12px;
+    font-weight: 400;
+    color: grey;
+}
+
+#strength-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: grey;
+}
+
+.strength-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #303030;
+    border-radius: 2px;
+}
+
+/* Login button */
+
+.submit {
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#ff8c32;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit:hover{
+    background:#ff7a14;
+}
+
+.sign-up {
+    font-size: 10px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: #888;
+    cursor: pointer;
+}
+
+.sign-up:hover {
+    color: white;
+}

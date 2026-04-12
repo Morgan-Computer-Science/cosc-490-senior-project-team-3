@@ -1,0 +1,95 @@
+body {
+    margin: 0px 60px;
+    margin-top: 60px;
+}
+
+#dash-heading {
+    position: relative;
+    font-size: 32px;
+    color: white;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.4fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap:20px;
+    height:100vh;
+}
+
+.card {
+    position: relative;
+    background: #1F1F1F;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+.card-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #505050;
+}
+
+.card-value {
+    margin: 0;
+    font-weight: bold;
+    font-size: 26px;
+    color: white;
+}
+
+/* grid placement */
+
+.gpa{
+  grid-column:1;
+  grid-row:1 / span 2;
+}
+
+.progress{
+  grid-column:2;
+  grid-row:1;
+}
+
+.credits{
+  grid-column:2;
+  grid-row:2;
+}
+
+.chat{
+  grid-column:3;
+  grid-row:1 / span 4;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 20px;
+    height: 18px;
+    width: calc(100% - 40px);
+    background-color: #1C1C1C;
+    border: 1px solid #505050;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar > .progress {
+    background-color: #FF710C;
+    height: 100%;
+    transition-duration: 500ms;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-question {
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.chat-response {
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: grey;
+}
