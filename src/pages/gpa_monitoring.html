@@ -22,7 +22,6 @@
 
 <div class="page">
 
-  <!-- HEADER -->
   <div class="page-header">
     <h1>GPA <span>Monitoring</span></h1>
     <div class="term-row">
@@ -124,11 +123,10 @@
 
 
 <script>
-  // ── Course data seeded by backend ─────────────────────────────────────────
+  // ── Course data should be seeded by backend 
   // Replace this with your Jinja2 template variable:
-  //   const courses = {{ courses | tojson }};
-  //
-  // Expected shape:
+
+  // Expected shape looks something like:
   //   [ { name: "COSC 352", grade: "C", hours: 3 }, ... ]
 
   let courses = {{ courses | tojson }};
