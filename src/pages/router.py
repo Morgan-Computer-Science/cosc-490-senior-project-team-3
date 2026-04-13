@@ -10,11 +10,17 @@ templates = Jinja2Templates(directory=TEMPLATE_DIR)
 
 @router.get("/")
 async def get_landing(request: Request):
-    return templates.TemplateResponse('home.html', {'request': request})
+    return templates.TemplateResponse(
+        request=request,
+        name='home.html',
+    )
 
 @router.get("/login", name="login")
 async def get_login(request: Request):
-    return templates.TemplateResponse('login.html', {'request': request})
+    return templates.TemplateResponse(
+        request=request,
+        name='login.html'
+    )
 
 @router.post("/login")
 async def post_login(request):
@@ -22,14 +28,23 @@ async def post_login(request):
 
 @router.get("/signup", name="signup")
 async def get_signup(request: Request):
-    return templates.TemplateResponse('signup.html', {'request': request})
+    return templates.TemplateResponse(
+        request=request,
+        name='signup.html'
+    )
 
 @router.get("/dashboard", name="dashboard")
 async def get_dashboard(request: Request):
     # session stuff
 
-    return templates.TemplateResponse('dashboard.html', {'request': request})
+    return templates.TemplateResponse(
+        request=request,
+        name='dashboard.html'
+    )
 
 @router.get("/panel", name="admin-panel")
 async def get_panel(request: Request):
-    return templates.TemplateResponse('panel.html', {'request': request})
+    return templates.TemplateResponse(
+        request=request,
+        name='panel.html'
+    )
