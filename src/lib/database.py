@@ -58,11 +58,29 @@ def register_user(data: UserRegistration) -> None:
     cursor.execute('''
         INSERT INTO `users` (email, first_name, last_name, password_hash, discipline, credits_earned, privilege)
         VALUES (?, ?, ?, ?, ?, ?, ?);
-    ''',(data.email, data.first_name, data.last_name, digest, 'Computer Science', 0, 1))
+    ''', (data.email, data.first_name, data.last_name, digest, 'Computer Science', 0, 1))
 
     database.commit()
 
     print('user registered in db')
 
     # INSERT INTO `users` (email, first_name, last_name, discipline, credits_earned, gpa, privilege)
-    # VALUES ('test@example.com', 'user', 'first', 'last', 'Computer Science', 70, 3.95, 1);
+    # VALUES ('test@example.com', 'user', 'first', 'last', 'Computer Science', 70, 3.95, 1);'
+
+def fetch_table(table_name: str, offset: int, n: int) -> dict:
+    cursor: sqlite3.Cursor = database.cursor()
+
+    valid_tables: list = ['users', 'gpa', 'sessions', 'courses', 'prerequisites', 'appointments', 'chat_logs']
+
+    if (table_name not in valid_tables):
+        raise ValueError('invalid table name')
+
+    cursor.execute(f'''
+        SELECT * FROM `{table_name}`
+        LIMIT ?
+        OFFSET ?
+    ''', (n, offset))
+
+    rows = cursor.fetchall()
+
+    return rows

@@ -7,7 +7,7 @@
 -- 4: Developer
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE users (
 
 -- gpa track table
 CREATE TABLE gpa (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT NOT NULL,
     semester INT NOT NULL,
     gpa DECIMAL(3, 2) NOT NULL DEFAULT 0,
@@ -29,7 +29,7 @@ CREATE TABLE gpa (
 
 -- login session table
 CREATE TABLE sessions (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT NOT NULL,
     token_hash CHAR(64) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -39,7 +39,7 @@ CREATE TABLE sessions (
 
 -- course table
 CREATE TABLE courses (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(100) NOT NULL,
     discipline CHAR(4) NOT NULL,
     code SMALLINT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE courses (
 
 -- prerequisites (fixed spelling + references)
 CREATE TABLE prerequisites (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     grouping INT NOT NULL,
     course_id INT NOT NULL,
     requires_id INT NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE prerequisites (
 
 -- appointments 
 CREATE TABLE appointments (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     advisor_id INT NOT NULL,
     student_id INT NOT NULL,
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -69,7 +69,7 @@ CREATE TABLE appointments (
 
 -- chat logs table
 CREATE TABLE chat_logs (
-    log_id SERIAL PRIMARY KEY,
+    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT NOT NULL,
     prompt TEXT NOT NULL,
     response TEXT NOT NULL,
