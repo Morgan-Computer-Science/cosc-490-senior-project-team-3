@@ -1,4 +1,5 @@
 from fastapi import Request
+from typing import Union
 
 from api.router import router
 from lib.util import clamp
@@ -8,13 +9,11 @@ N_LIMIT = 80
 N_DEFAULT = 20
 
 @router.get('/records')
-async def fetch_records(request: Request) -> None:
-    query_params = request.query_params
+async def fetch_records(table: str, offset: int = 0, n: int = N_DEFAULT, sort_by: Union[str, None] = None, sort_order: Union[bool, None] = False):
+    n = clamp(n, 1, N_LIMIT)
 
-    table_name: str = query_params.get('table')
-    offset: int = query_params.get('offset') or 0
-    n: int = clamp(int(query_params.get('n')) or N_DEFAULT, 1, N_LIMIT)
-
-    data = fetch_table(table_name, offset, n)
+    print('/records :', table, offset, n, sort_by, sort_order)
+    
+    data = fetch_table(table, offset, n, sort_by, sort_order)
 
     return data

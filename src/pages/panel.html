@@ -37,14 +37,14 @@
             <h2>Recent Records</h2>
             <table>
                 <thead>
-                <tr>
+                <tr id="fields-row">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Status</th>
                     <th>Date</th>
                 </tr>
                 </thead>
-                <tbody id="tableBody">
+                <tbody id="table-body">
                 <!-- JS will populate -->
                 </tbody>
             </table>
@@ -55,25 +55,132 @@
     <script>
         ITEM_LIMIT = 20;
 
-        async function fetch_table(table_name, offset=0) {
-            try {
-                // const response = await fetch('/api/v1/records', {
-                //     method: 'POST',
-                //     body: JSON.stringify({
-                //         table: table_name,
-                //         offset: offset,
-                //         n: ITEM_LIMIT
-                //     })
-                // });
+        class Panel {
+            loaded_table = null;
+            sort_order = false;
+            sort_field = null;
+            offset = 0;
 
-                const response = await fetch(`/api/v1/records?table=${table_name}&offset=${offset}&n=${ITEM_LIMIT}`);
+            fields = [];
+
+            constructor(table_name) {
+                this.loaded_table = table_name;
+
+                this.load_table();
+                this.update_table();
+            }
+
+            async fetch_data() {
+                const response = await fetch(`/api/v1/records?table=${this.loaded_table}&offset=${this.offset}&n=${ITEM_LIMIT}&sort_by=${this.sort_field}&sort_order=${this.sort_order}`);
 
                 const data = await response.json();
 
-                console.log('recv: ', data);
-            } catch (error) {
-                console.error('failed to fetch table: ', error)
+                return data;
+            }
+
+            set_sort(field) {
+                if (this.sort_field == field) {
+                    // this.sort_order = this.sort_order == 'ascending' ? 'descending' : 'ascending';
+                    this.sort_order = !this.sort_order;
+                } else {
+                    this.sort_field = field;
+                    this.sort_roder = 'descending';
+                }
+            }
+
+            async load_table(table_name) {
+                // this.loaded_table = table_name;
+
+                const data = await this.fetch_data();
+
+                const fields_row = document.getElementById('fields-row');
+
+                fields_row.innerHTML = '';
+
+                for (const field of data.fields) {
+                    const field_element = document.createElement('th');
+                    const caret = document.createElement('img');
+
+                    field_element.textContent = field;
+
+                    field_element.onclick = () => {
+                        this.set_sort(field);
+                    }
+
+                    fields_row.append(field_element);
+                }
+            }
+
+            async update_table() {
+                const data = await this.fetch_data();
+
+                const table_body = document.getElementById('table-body');
+
+                table_body.innerHTML = '';
+
+                for (const row of data.rows) {
+                    const row_element = document.createElement('tr');
+
+                    for (const column of row) {
+                        const element = document.createElement('th');
+
+                        element.textContent = column;
+
+                        row_element.append(element);
+                    }
+
+                    table_body.append(row_element);
+                }
             }
         }
+
+        const panel = new Panel('users');
+
+        // let loaded_table = null;
+        // let sort_order = 'descending';
+        // let sort_field = null;
+        // let offset = 0;
+
+        // async function fetch_table(table_name, sort_by='', sort_order='descending', offset=0) {
+        //     try {
+        //         const response = await fetch(`/api/v1/records?table=${table_name}&offset=${offset}&n=${ITEM_LIMIT}&sort_by=${sort_by}&sort_order=${sort_order}`);
+
+        //         const data = await response.json();
+
+        //         const fields_row = document.getElementById('fields-row');
+
+        //         // clear previous rows first
+        //         fields_row.innerHTML = '';
+
+        //         for (const field of data.fields) {
+        //             const field_element = document.createElement('th');
+
+        //             field_element.textContent = field;
+
+        //             fields_row.append(field_element);
+        //         }
+
+        //         const table_body = document.getElementById('table-body');
+
+        //         for (const row of data.rows) {
+        //             const row_element = document.createElement('tr');
+
+        //             for (const column of row) {
+        //                 const element = document.createElement('th');
+
+        //                 element.textContent = column;
+
+        //                 row_element.append(element);
+        //             }
+
+        //             table_body.append(row_element);
+        //         }
+        //     } catch (error) {
+        //         console.error('failed to fetch table: ', error)
+        //     }
+        // }
+
+        // fetch_table('users', 0)
+
     </script>
 </html>

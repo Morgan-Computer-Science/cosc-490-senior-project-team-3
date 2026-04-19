@@ -62,12 +62,15 @@ def register_user(data: UserRegistration) -> None:
 
     database.commit()
 
-    print('user registered in db')
-
     # INSERT INTO `users` (email, first_name, last_name, discipline, credits_earned, gpa, privilege)
-    # VALUES ('test@example.com', 'user', 'first', 'last', 'Computer Science', 70, 3.95, 1);'
+    # VALUES ('test@example.com', 'user', 'first', 'last', 'Computer Science', 70, 3.95, 1);
 
-def fetch_table(table_name: str, offset: int, n: int) -> dict:
+def login_user(data: UserLogin):
+    hash_object = hashlib.sha256(data.password.encode())
+
+    digest: str = hash_object.digest()
+
+def fetch_table(table_name: str, offset: int, n: int, sort_by: str | None, sort_order: bool = False) -> dict:
     cursor: sqlite3.Cursor = database.cursor()
 
     valid_tables: list = ['users', 'gpa', 'sessions', 'courses', 'prerequisites', 'appointments', 'chat_logs']
@@ -75,12 +78,27 @@ def fetch_table(table_name: str, offset: int, n: int) -> dict:
     if (table_name not in valid_tables):
         raise ValueError('invalid table name')
 
-    cursor.execute(f'''
-        SELECT * FROM `{table_name}`
-        LIMIT ?
-        OFFSET ?
-    ''', (n, offset))
+    if (sort_by != None):
+        cursor.execute(f'''
+            SELECT * FROM `{table_name}`
+            ORDER BY ? {'ASC' if sort_order else 'DESC'}
+            LIMIT ?
+            OFFSET ?
+        ''', (sort_by, n, offset))
+    else:
+        cursor.execute(f'''
+            SELECT * FROM `{table_name}`
+            LIMIT ?
+            OFFSET ?
+        ''', (n, offset))
+
+    field_names = [description[0] for description in cursor.description]
+
+    print('field names: ', field_names)
 
     rows = cursor.fetchall()
 
-    return rows
+    return {
+        'fields': field_names,
+        'rows': rows
+    }
