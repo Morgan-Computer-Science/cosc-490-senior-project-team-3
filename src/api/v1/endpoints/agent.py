@@ -1,7 +1,8 @@
-from fastapi import Request
+from fastapi import APIRouter
 
-from api.router import router
-from lib.agent import agent
+from agent.agent import agent
+
+router = APIRouter()
 
 @router.get('/query')
 async def query_agent(query: str):

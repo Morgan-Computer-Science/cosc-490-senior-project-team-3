@@ -1,6 +1,6 @@
 from google.adk.agents import llm_agent
 
-from lib.agents.config import llm_model, generation_config
+from agent.agents.config import llm_model, generation_config
 
 academic_advisor = llm_agent.LlmAgent(
     name='academic_advisor',

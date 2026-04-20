@@ -1,7 +1,7 @@
 from google.adk.agents import llm_agent
 
-from lib.agents.config import llm_model, generation_config
-from lib.agents.advisor import academic_advisor
+from agent.agents.config import llm_model, generation_config
+from agent.agents.advisor import academic_advisor
 
 root_agent = llm_agent.LlmAgent(
     name='root_agent',

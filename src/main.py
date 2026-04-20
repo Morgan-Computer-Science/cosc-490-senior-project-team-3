@@ -5,9 +5,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from pages.router import router as pagerouter
-from api.router import router as apirouter
+from api.v1.router import router as apirouter
 from lib.query import query_gemini
-from lib.database import db_init
+from lib.database import database
 
 app: FastAPI = FastAPI()
 

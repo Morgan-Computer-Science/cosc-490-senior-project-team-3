@@ -7,7 +7,7 @@ from vertexai.agent_engines import AdkApp
 # from vertexai.preview.reasoning_engines import AdkApp
 
 # from agents.root import root_agent
-from lib.agents.root import root_agent
+from agent.agents.root import root_agent
 
 PROJECT_ID = 'project-d4c985c2-9db2-4bb7-a6c'
 LOCATION = 'us-central1'
