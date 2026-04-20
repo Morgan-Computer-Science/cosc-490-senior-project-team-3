@@ -1,51 +1,176 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BearViSor — Your academic advisor, on call.</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}"/>
-        <link rel="stylesheet" href="{{ url_for('static', path='/css/home.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/home.css') }}"/>
+        <link rel="styleshset" href="{{ url_for('static', path='/css/grid.css') }}"/>
     </head>
-
     <body>
-        <div id="hero">
-            <div id="hero-left">
-                <div class="highlight" id="hero-highlight"></div>
-                <h2 id="hero-title">BearViSor AI</h2>
-                <p id="hero-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="/login">
-                <div id="get-started">
-                    <h2>Get Started</h2>
-                </div>
-                </a>
-            </div>
-
-            <div id="hero-right">
-                <div id="feature-top-flex">
-                    <div class="feature">
-                        <h2>Advising</h2>
+        <div class="container">
+            <nav class="nav">
+                <div class="brand">
+                    <div class="brand-mark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 5.5 C3 5 3.4 4.5 4 4.5 L10.5 4.5 C11.3 4.5 12 5.2 12 6 L12 19.5 C11 18 9.5 17.5 8 17.5 L4 17.5 C3.4 17.5 3 17 3 16.5 Z"/>
+                            <path d="M21 5.5 C21 5 20.6 4.5 20 4.5 L13.5 4.5 C12.7 4.5 12 5.2 12 6 L12 19.5 C13 18 14.5 17.5 16 17.5 L20 17.5 C20.6 17.5 21 17 21 16.5 Z" opacity="0.65"/>
+                        </svg>
                     </div>
-                    <div class="feature">
-                        <h2>Course Selection</h2>
+                    <div class="brand-name">BearViSor</div>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a>For Advisors</a>
+                </div>
+
+                <button class="btn-primary">Launch app →</button>
+            </nav>
+
+            <section class="hero">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <!-- <div class="pill">
+                            <span class="pilrl-dot"></span>
+                            Now open to all undergaduate majors
+                        </div> -->
+                        <div class="hero-title-frame">
+                            <div class="highlight" id="hero-highlight"></div>
+                            <h1 class="hero-title">BearViSor</h1>
+                        </div>
+                        <p class="hero-subtitle">
+                            BearViSor is an AI agent trained on your department's catalog,
+                            prerequisites, and advisor calendar. Ask anything — get a real plan
+                            in seconds.
+                        </p>
+                        <div class="hero-ctas">
+                            <a class="btn-primary-lg" href="{{ url_for('login') }}">
+                                Get started
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);">
+                                    <path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>
+                                </svg>
+                            </a>
+                            <button class="btn-secondary-lg">Watch demo</button>
+                        </div>
+                    </div>
+
+                    <!-- Chat preview -->
+                    <div class="hero-preview">
+                        <div class="preview-card">
+                            <div class="preview-topbar">
+                                <div class="preview-dots">
+                                    <div class="preview-dot" id="close-dot"></div>
+                                    <div class="preview-dot" id="size-dot"></div>
+                                    <div class="preview-dot" id="min-dot"></div>
+                                </div>
+                                <div class="preview-url">bearvisor.ai</div>
+                            </div>
+
+                            <div class="preview-msgs">
+                                <div class="msg user">
+                                    <div class="msg-avatar user">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="msg-bubble user">
+                                        Can I still graduate on time if I change my minor to Stats?
+                                    </div>
+                                </div>
+
+                                <div class="msg">
+                                    <div class="msg-avatar bot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="msg-bubble bot">
+                                        Yes — you'd need 3 more courses. Two fit in Fall, one in Spring. Want me to draft a plan?
+                                    </div>
+                                </div>
+
+                                <div class="chips">
+                                    <button class="chip">Draft the plan</button>
+                                    <button class="chip">Compare minors</button>
+                                </div>
+                            </div>
+
+                            <div class="preview-composer">
+                                <span class="preview-composer-placeholder">Ask about any course…</span>
+                                <div class="preview-composer-send">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="feature">
-                    <h2>GPA Monitoring</h2>
+            </section>
+
+            <section class="features" id="features">
+                <div class="features-header">
+                    <div>
+                        <div class="eyebrow">What it does</div>
+                        <h2 class="section-title">Features</h2>
+                    </div>
                 </div>
-            </div>
+
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Advising on demand</h3>
+                        <p class="feature-body">
+                            Real answers about majors, minors, prereqs, and requirements — pulled from your actual catalog, not generic web results.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Course selection</h3>
+                        <p class="feature-body">
+                            Build a conflict-free schedule in seconds. The agent accounts for prereqs, workload, and even professor ratings.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">GPA monitoring</h3>
+                        <p class="feature-body">
+                            Track every semester, project where you're headed, and get early warnings if something's trending the wrong way.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div>© 2026 BearViSor AI</div>
+                <div class="footer-links">
+                    <a>Privacy</a>
+                    <a>Terms</a>
+                    <a>Contact</a>
+                </div>
+            </footer>
+
         </div>
-        <div id="features-frame">
-            <div id="features-container">
-                <h2 id="features-title">Features</h2>
 
-                <h2 class="features-subheading">Advising</h2>
-                <p class="features-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <h2 class="features-subheading">Course Selection</h2>
-                <p class="features-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <h2 class="features-subheading">GPA Monitoring</h2>
-                <p class="features-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
     </body>
 </html>
