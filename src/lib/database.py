@@ -1,10 +1,12 @@
 import sqlite3
 import hashlib
+import secrets
 import os
 
-from typing import Annotated
+from datetime import datetime, timedelta
+from typing import Annotated, Optional
 
-from lib.types import UserRegistration, UserLogin
+from lib.types import UserRegistration, UserLogin, User
 
 __dir__: str = os.path.dirname(__file__)
 
@@ -19,6 +21,9 @@ class Database:
     def __init__(self, path: str, schema: str):
         self.connection: sqlite3.Connection = sqlite3.connect(path)
         self.schema = schema
+
+        # set return items to a dict
+        self.connection.row_factory = sqlite3.Row
 
         self.init()
 
@@ -51,7 +56,7 @@ class Database:
     def register_user(self, data: UserRegistration) -> None:
         hash_object = hashlib.sha256(data.password.encode())
     
-        digest: str = hash_object.digest()
+        digest: str = hash_object.hexdigest()
 
         cursor: sqlite3.Cursor = self.connection.cursor()
 
@@ -60,16 +65,57 @@ class Database:
             VALUES (?, ?, ?, ?, ?, ?, ?);
         ''', (data.email, data.first_name, data.last_name, digest, 'Computer Science', 0, 1))
 
-        database.commit()
+        self.connection.commit()
 
     def login_user(self, data: UserLogin):
         hash_object = hashlib.sha256(data.password.encode())
 
-        digest: str = hash_object.digest()
+        digest: str = hash_object.hexdigest()
+
+        cursor: sqlite3.Cursor = self.connection.cursor()
+
+        cursor.execute('''
+            SELECT * FROM `users`
+            WHERE email = ?            
+        ''', (data.email,))
+
+        row = cursor.fetchone()
+        row = dict(row)
+
+        user_data: Optional[User] = User.model_validate(row) if row else None
+
+        # check if email exists 
+        if (user_data == None):
+            return (False, 'User not found')
+        
+        if (user_data.password_hash != digest):
+            return (False, 'Incorrect password')
+        
+        print(user_data)
+
+    def create_session(self, user: User) -> str:
+        # generate token
+        token = secrets.token_urlsafe(32)
+
+        hash_object = hashlib.sha256(token.encode())
+
+        digest = hash_object.hexdigest()
+
+        # 3 months until expire
+        offset = timedelta(days=90)
+
+        expires = datetime.now() + offset
+
+        cursor: sqlite3.Cursor = self.connection.cursor()
+
+        cursor.execute('''
+            INSERT INTO `sessions` (user_id, token_hash, expires_at)
+            VALUES (?, ?, ?)         
+        ''', (user.id, digest, expires))
+
+        return digest
 
         
-
-
     def fetch_table(self, table_name: str, offset: int, n: int, sort_by: str | None, sort_order: bool = False) -> dict:
         cursor: sqlite3.Cursor = self.connection.cursor()
 
@@ -95,6 +141,8 @@ class Database:
         field_names = [description[0] for description in cursor.description]
 
         rows = cursor.fetchall()
+
+        print(rows)
 
         return {
             'fields': field_names,

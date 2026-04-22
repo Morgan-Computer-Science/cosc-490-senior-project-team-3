@@ -12,3 +12,14 @@ class UserLogin(BaseModel):
     email: str = Field(pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
     password: str = Field(min_length=8, max_length=20)
     model_config = {"extra": "forbid"}
+
+class User(BaseModel):
+    id: int
+    email: str = Field(pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+    first_name: str = Field(min_length=3, max_length=20, pattern="^[a-zA-Z]+$")
+    last_name: str = Field(min_length=3, max_length=20, pattern="^[a-zA-Z]+$")
+    password_hash: str
+    discipline: str
+    credits_earned: int
+    privilege: int
+    created_at: str

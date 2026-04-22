@@ -15,4 +15,7 @@ async def signup(data: Annotated[UserRegistration, Form()]) -> None:
     
 @router.post("/login", name="login_endpoint")
 async def login(data: Annotated[UserLogin, Form()]):
+    print('/api/v1/login', data)
+
+    success = database.login_user(data)
     pass

@@ -114,6 +114,8 @@
             async update_table() {
                 const data = await this.fetch_data();
 
+                console.log(data)
+
                 const table_body = document.getElementById('table-body');
 
                 table_body.innerHTML = '';
@@ -121,10 +123,12 @@
                 for (const row of data.rows) {
                     const row_element = document.createElement('tr');
 
-                    for (const column of row) {
+                    for (const field of data.fields) {
+                        const value = row[field]
+
                         const element = document.createElement('th');
 
-                        element.textContent = column;
+                        element.textContent = value;
 
                         row_element.append(element);
                     }
