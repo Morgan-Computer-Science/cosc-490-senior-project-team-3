@@ -1,31 +1,24 @@
-import re
-
 from typing import Annotated
-from fastapi import APIRouter, Request, Form
-from pydantic import BaseModel, Field
+from fastapi import APIRouter, Form
 
 from lib.types import UserRegistration, UserLogin
-from lib.database import register_user, fetch_courses
+from lib.database import database
 
-
-VERSION = 'v1'
-
-router = APIRouter(prefix=f'/api/{VERSION}')
+router = APIRouter()
 
 @router.post("/signup", name="signup_endpoint")
 async def signup(data: Annotated[UserRegistration, Form()]) -> None:
     if (data.password != data.confirm_password):
         return False
     
-    register_user(data)
-    
+    database.register_user(data)
     
 @router.post("/login", name="login_endpoint")
 async def login(data: Annotated[UserLogin, Form()]):
+    print('/api/v1/login', data)
+    success = database.login_user(data)
     pass
 
 @router.get("/courses", name="courses_endpoint")
 async def get_courses():
-    return fetch_courses()
-
-import api.records
+    return database.fetch_courses()

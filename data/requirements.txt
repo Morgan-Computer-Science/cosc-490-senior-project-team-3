@@ -1,17 +1,3 @@
-import vertexai
-from vertexai.generative_models import GenerativeModel
-
-PROJECT_ID = 'project-d4c985c2-9db2-4bb7-a6c'
-LOCATION = 'us-central1'
-
-vertexai.init(project=PROJECT_ID, location=LOCATION)
-
-model = GenerativeModel("gemini-2.0-flash-001")
-
-def query_gemini(prompt: str):
-    response = model.generate_content('''
-Create semester plans based on degree requirements, student's completed courses, and any input from the user. Degree requirements are below:
-
 Bachelor of Science:
 
 - Minimum of 120 Credits Required
@@ -143,10 +129,3 @@ INSS 494 - Information Security and Risk Management 3 credits
 EEGR 481 - Introduction to Network Security 3 credits
 EEGR 483 - Introduction to Security Management 3 credits
 XXXX - 300 - 400 level COSC Course (not previously taken) 3 credits​
-                                      
-Classes I already took: ENG 101, ENG 112, COSC 111, COSC 112, COSC 220, MATH 241, MATH 242, COSC 281
-
-    ''' + prompt)
-
-    return response
-

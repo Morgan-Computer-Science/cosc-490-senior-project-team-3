@@ -61,14 +61,20 @@ button {
 }
 
 table {
+    display: block;
     width: 100%;
     border-collapse: collapse;
+    overflow-x: scroll;
 }
 
 th, td {
     padding: 10px;
     border-bottom: 1px solid #2f2f2f;
     text-align: left;
+}
+
+#table-body th {
+    font-weight: 300;
 }
 
 tr:hover {

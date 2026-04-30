@@ -1,0 +1,502 @@
+[
+  {
+    "code": "ENGL 101",
+    "title": "Composition I",
+    "credits": "3",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": null,
+    "description": "This course is designed to develop the student’s command of language as an instrument of learning and expression. It focuses on essay writing. Students whose test performance demonstrates exceptional ability are exempt from the requirement of ENGL 101 and are permitted to enter ENGL 102."
+  },
+  {
+    "code": "ENGL 111",
+    "title": "Composition I—Honors",
+    "credits": "3",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": null,
+    "description": "This course is designed to develop the student’s command of language as an instrument of learning and expression. It focuses on essay writing. It also provides the student the opportunity for extensive reading and critical thinking in support of writing skills and for the application of knowledge and skills to problems and issues in contemporary society. This course is required of students in the University Honors Program to satisfy General Education Requirements and is open to other students with departmental permission."
+  },
+  {
+    "code": "ENGL 102",
+    "title": "Composition II",
+    "credits": "3",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": "ENGL 101 completed with a grade of “C” or higher",
+    "description": "This course is designed to develop the student’s command of language as an instrument of learning and expression, and it focuses on research and writing the documented essay. "
+  },
+  {
+    "code": "ENGL 112",
+    "title": "Composition II—Honors",
+    "credits": "3",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": "ENGL 111 or ENGL 101 (with permission) completed with grades of “C” or higher",
+    "description": "This course is designed to develop the student’s command of language as an instrument of learning and expression, and it focuses on research and writing the documented essay. It also provides the student the opportunity for extensive reading and critical thinking in support of research and writing skills and for the application of knowledge and skills to problems and issues in contemporary society. The course is required of students in the University Honors Program to satisfy General Education Requirements and is open to other students with departmental permission or an “A” in ENGL 101."
+  },
+  {
+    "code": "MATH 241",
+    "title": "Calculus I",
+    "credits": "4",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": "ENGR 101 or MATH 114  or MATH 141  completed with a grade of “C” or higher",
+    "description": "Topics to be discussed include limits and continuity of real functions of one variable; differentiation and anti- differentiation of algebraic, trigonometric, exponential, and logarithmic functions; the chain rule, the Rolle’s Theorem, and the Mean Value Theorem; applications of differentiation to various problems including optimization problems and curve sketching; and an introduction to definite and indefinite integrals."
+  },
+  {
+    "code": "COSC 111",
+    "title": "Introduction to Computer Science I",
+    "credits": "4",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": null,
+    "description": "A first course in the computer science sequence, it is required for all computer science majors. Course objectives include:  introduction to problem solving and computational thinking (CT) concepts, including Decomposition, Abstraction, Pattern Recognition and Algorithmic Thinking; pseudo-code and flow-chart based visual programming, overview of a high-level and/or interpreted programming language, including syntax, semantics, primary data types, variables, expressions and statements, input/output and library functions, decision making, iteration, coding, debugging, and successfully executing programs.  This course has labs with programming assignments."
+  },
+  {
+    "code": "ORNS 106",
+    "title": "Freshman Orientation for Majors in the School of Computer, Mathematical and Natural Sciences",
+    "credits": "1",
+    "section": "General Education and University Requirements",
+    "subsection": "",
+    "category": "General Education",
+    "requirements": null,
+    "description": "This course introduces students to the expectations and demands of higher education, to the legacy and tradition of Morgan State University, to college survival strategies, and to the broad array of career opportunities in the science, mathematical and technological fields. Students enrolled in this class are required to attend all university convocations and other prescribed extracurricular activities. They are also required to hold conferences with their faculty or staff advisors in order to pass the course. Students transferring 24 or more credits to the university when admitted are exempted from this requirement. (FORMERLY ORIE 106)."
+  },
+  {
+    "code": "MATH 242",
+    "title": "Calculus II",
+    "credits": "4",
+    "section": "Supporting Courses",
+    "subsection": "",
+    "category": "Supporting",
+    "requirements": "MATH 241  completed with a grade of “C” or higher",
+    "description": "This course is the continuation of MATH 241 and is designed to cover the following topics: definite integrals and their applications, fundamental theorem of calculus, techniques of integration, approximate integration, and improper integrals. Integrals yielding inverse trigonometric functions, infinite sequences and series, and other topics are also discussed."
+  },
+  {
+    "code": "MATH 312",
+    "title": "Linear Algebra I",
+    "credits": "3",
+    "section": "Supporting Courses",
+    "subsection": "",
+    "category": "Supporting",
+    "requirements": "MATH 241 completed with a grade of “C” or higher",
+    "description": "This course is designed to cover the following topics: a study of linear transformations and matrices, vector spaces, eigenvalues and canonical forms and other topics as time permits."
+  },
+  {
+    "code": "MATH 331",
+    "title": "Applied Probability and Statistics",
+    "credits": "3",
+    "section": "Supporting Courses",
+    "subsection": "",
+    "category": "Supporting",
+    "requirements": "MATH 242 completed with a grade of “C” or higher",
+    "description": "This is a first course in statistics with emphasis on applications in engineering and the sciences, including the role of statistics in quality control, descriptive statistics, basic probability, discrete and continuous probability models, sampling distributions, drawing inferences from population samples via estimation and significance tests, brief exposure to regression and analysis of variance. Students are required to complete computer projects using statistical software systems."
+  },
+  {
+    "code": "COSC 201",
+    "title": "Computer Ethics",
+    "credits": "1",
+    "section": "Supporting Courses",
+    "subsection": "",
+    "category": "Supporting",
+    "requirements": null,
+    "description": "Humanitarian, social, and professional impact of IT focusing on ethical issues related to networking and the Internet, IT-configured societies, moral accountability, responsibility, and the liability of IT-professionals, intellectual property, privacy, security, cybercrime, theft and piracy concerns, etc."
+  },
+  {
+    "code": "COSC 111",
+    "title": "Introduction to Computer Science I",
+    "credits": "4",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": null,
+    "description": "A first course in the computer science sequence, it is required for all computer science majors. Course objectives include:  introduction to problem solving and computational thinking (CT) concepts, including Decomposition, Abstraction, Pattern Recognition and Algorithmic Thinking; pseudo-code and flow-chart based visual programming, overview of a high-level and/or interpreted programming language, including syntax, semantics, primary data types, variables, expressions and statements, input/output and library functions, decision making, iteration, coding, debugging, and successfully executing programs.  This course has labs with programming assignments."
+  },
+  {
+    "code": "COSC 112",
+    "title": "Introduction to Computer Science II",
+    "credits": "4",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 111 completed with a grade of “C” or higher",
+    "description": "This is the second computer science course in a two-semester course sequence for computer science majors. Course objectives include:  introduction to simple data structures, such as list, tuples, and dictionaries, functions and modules, string handling, file input/output, exception, recursion, and introduction to classes and objects.  This course has labs with programming assignments based on using editors to compile/execute large programs."
+  },
+  {
+    "code": "COSC 220",
+    "title": "Data Structures and Algorithms",
+    "credits": "4",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course focuses on fundamental data structures and algorithms which act on data structure, data relationships, and storage representations.  Basic concepts of data structures such as strings, lists, arrays, stacks, queues, dictionaries, maps, trees, graphs, and algorithms of the data structure operations such as inserting deleting, updating, traversing, searching, sorting along with corresponding time/space complexities represented and extended toward problem solving through implementations and programming."
+  },
+  {
+    "code": "COSC 241",
+    "title": "Computer Systems and Digital Logic",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 112 and MATH 141  completed with grades of “C” or higher",
+    "description": "This course introduces basic concepts of computer systems and digital logic and circuit design including both combinational logics (e.g. Boolean Laws and Algebra, DeMorgan’s Theorem, basic logic gates, encoders, decoders, multiplexers, de-multiplexers, adders and subtractors) and sequential logics (e.g. latches, flip-flops, and counters).  Also, data representation, device characteristics, and register transfer notation are covered in a manner that stresses application of basic problem solving techniques to both hardware and software design.  It is a first course in computer and ASSEMBLY language programming."
+  },
+  {
+    "code": "COSC 281",
+    "title": "Discrete Structure",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "The purpose of this course is to provide an up-to-date and didactically coherent introduction to discrete mathematics.  This course is designed to introduce the mathematical techniques which are of the greatest importance to theoretical computer science.  Topics to be discussed include Boolean algebra, partially ordered structures, prepositional logic, predicate logic, graphs, and coding theory."
+  },
+  {
+    "code": "COSC 349",
+    "title": "Computer Networks",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 243 completed with a grade of “C” or higher",
+    "description": "This course covers the theory and practice of computer networks, emphasizing the principles underlying the design of network software and the role of the communications system in distributed computing. Topics include network architecture, context and packet switching, network programming, wireless network, data representation, channel, semantics, synchronization, and resource."
+  },
+  {
+    "code": "COSC 351",
+    "title": "Cybersecurity",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course presents threats analyzing and prediction, vulnerabilities and risks. Topics include identification and authentication, encryption and certifications, security in UNIX and Windows environments, malicious software, trusted computer systems, network attacks and defenses, firewalls, intrusion detection and prevention, database security."
+  },
+  {
+    "code": "COSC 352",
+    "title": "Organization of Programming Languages",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 220 completed with a grade of “C” or higher",
+    "description": "This course explores concepts of programming languages including the following topics: syntax and basic characteristics of grammars, constructs for specifying and manipulating data types, control structures and data flow, and run-time considerations. Examples will be drawn from languages such as FORTRAN 90, JAVA, ALGOL, SNOBOL 4 and APL."
+  },
+  {
+    "code": "COSC 354",
+    "title": "Operating Systems",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 220 and COSC 241 completed with grades of “C” or higher",
+    "description": "Principles underlying computer operating systems are presented from a computer designer’s perspective. Concepts explained include process concurrence, synchronization, resource management, input/ output scheduling, job and process scheduling, scheduling policies, deadlock, semaphore, consumer/ producer relationship, storage management (real storage management policies in a multiprogramming environment), virtual memory management (segmentation and paging), and an overview of contemporary operating systems with these principles. Students program in a high level language."
+  },
+  {
+    "code": "COSC 458",
+    "title": "Software Engineering",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 220 completed with a grade of “C” or higher",
+    "description": "This course presents the fundamental concepts of software engineering starting from feasibility study; covering development and testing phases, to deployment and maintenance ensuring standard software development life cycle (SDLC).  This course also covers formal methods, software re-engineering, reverse engineering, version control, reliability, risks, legal aspect (e.g. software ethics), organizing and managing a project and team.  Students will be organized into teams to develop a large software project."
+  },
+  {
+    "code": "COSC 459",
+    "title": "Database Design",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "COSC 220 completed with a grade of “C” or higher",
+    "description": "A student selecting this course will study functions of a database system, and data modeling and logical database design.  Query languages and query optimization, efficient data storage and access, as well as concurrency control and recovery will also be covered."
+  },
+  {
+    "code": "COSC 490",
+    "title": "Senior Project",
+    "credits": "3",
+    "section": "Required Courses for Computer Science Major",
+    "subsection": "",
+    "category": "Required",
+    "requirements": "Department Chair permission and Senior standing required to register",
+    "description": "Graduating seniors selecting this course will conduct research or participate in special projects on topics reflecting new and latest developments in computer science, under the guidance of a faculty member of the Department."
+  },
+  {
+    "code": "COSC 238",
+    "title": "Object Oriented Programming",
+    "credits": "4",
+    "section": "Computer Science Electives",
+    "subsection": "Group A Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course presents the fundamental concepts of object oriented programming (e.g. abstraction, encapsulation, inheritance, polymorphism, class, objects) and involves problem solving, for both static and dynamic data structures, using an object oriented programming language.  The course also covers relevant concepts of object-oriented analysis and design (OOAD) using UML."
+  },
+  {
+    "code": "COSC 239",
+    "title": "Java Programming",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group A Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course includes Java’s syntax and program structure,, objects, classes and object-oriented programming, introductory data structures in Java, annotations and self-documentation of Java programs, programming practices and software development principles, graphical user interface, and programming practice in Java."
+  },
+  {
+    "code": "COSC 243",
+    "title": "Computer Architecture",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group A Electives",
+    "category": "Elective",
+    "requirements": "COSC 241 completed with a grade of “C” or higher", 
+    "description": "This course is an introduction to computer organization and architecture. The computer is described as a hierarchy of levels, each performing some well-defined function. Comparisons are made in the way the levels and functions are implemented in various computer systems. This course focuses on fundamental knowledge on CPU organization and control, instruction set architecture, memory organizations, input/output structurer, and parallel architectures."
+  },
+  {
+    "code": "COSC 251",
+    "title": "Introduction to Data Science",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group A Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course introduces the use of computers for the analysis, interpretation and visualization of both simple and complex, high-volume, high-dimensional and structured/unstructured data from varying sources based on applying data analysis, modeling, data mining, data visualization and search techniques."
+  },
+  {
+    "code": "CLCO 261",
+    "title": "Introduction to Cloud Computing",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group A Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course presents an overview of the field of Cloud Computing, its enabling technologies, main building blocks, and hands-on experience through projects utilizing public cloud infrastructures, such as Amazon Web Services.  The course will introduce this domain and cover the topics of cloud infrastructures, virtualization, software defined networks and storage, cloud storage, and programming models."
+  },
+  {
+    "code": "COSC 320",
+    "title": "Algorithm Design and Analysis",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 and COSC 281 completed with grades of “C” or higher",
+    "description": "A single algorithmic improvement can win over a decade of incremental hardware updates.  This course focuses on concepts of algorithm design and methods of analysis.  Topics include, asymptotic complexity, completeness and correctness, divide and conquer, dynamic programming, greedy algorithms, amortized analysis, graph algorithms, branch and bound, approximation algorithms and heuristics, np-hard, and np-complete problems."
+  },
+  {
+    "code": "COSC 323",
+    "title": "Introduction to Cryptography",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 238 and MATH 312  completed with grades of “C” or higher or instructor permission",
+    "description": "Cryptography is an essential approach towards protecting information and securing communication in computer and network systems.  This course features an introduction to modern cryptography, with an emphasis on the fundamental cryptographic aspects such as, digital signatures, pseudo-random number generation, and basic protocols and their required computational aspects.  This course will be self-contained as the statistical and mathematical requirement will be covered.  Throughout the course students will be exposed to new and practical open problems in this field."
+  },
+  {
+    "code": "COSC 332",
+    "title": "Introduction to Game Design and Development",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 completed with a grade of “C” or higher",
+    "description": "This course is to familiarize students with the tools and practices of game development.  In this course students will get started developing their own video games using the industry standard game development tools, including the Unity3D game engine.  In this course students will have several hands-on projects and will be able to leverage an array of game development techniques to create their own basic games."
+  },
+  {
+    "code": "COSC 338",
+    "title": "Mobile App Design & Development",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 238 completed with a grade of “C” or higher",
+    "description": "This course provides an exploration into mobile app development through the design and implementation of API clients.  Students will understand the nature of mobile app coding structures and design and how to apply them appropriately to develop mobile-based computational solutions."
+  },
+  {
+    "code": "COSC 383",
+    "title": "Numerical Methods and Programming",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "MATH 242 completed with a grade of “C” or higher",
+    "description": "This course derives and applies techniques for approximation numerical variables and parameters. Mathematical procedures for numerical approximation are analyzed for computational efficiency and error accumulation. Algorithms for implementation of numerical methods are derived and applied in a high-level computer language."
+  },
+  {
+    "code": "COSC 385",
+    "title": "Theory of Languages and Automata",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 and COSC 281 completed with grades of “C” or higher",
+    "description": "This course is an introduction to the theory of automata, languages, syntax and basic characteristics of grammars and computability.  The course covers math preliminaries (sets, functions, and relations), languages, automata, and grammmars; Chomsky hierarchy; finite automata, regular expressions, and regular languages; push-down automata and context free languages; and Turing machines."
+  },
+  {
+    "code": "COSC 386",
+    "title": "Introduction to Quantum Computing",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 and MATH 312 completed with grades of “C” or higher",
+    "description": "This course presents an introduction to quantum computing.  It covers the basics  of quantum computing,  quantum architecture, levels of programming, quantum algorithms, quantum software development kits:  Qiskit Q#, Cirq, and Forest, the most important and/or popular  quantum algorithms."
+  },
+  {
+    "code": "MATH 313",
+    "title": "Linear Algebra II",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "MATH 312 completed with a grade of “C” or higher",
+    "description": "This is a follow-up course to MATH 312. Special topics, applied and abstract, are studied. These topics include Hermitian Matrices, Quadratic Forms, Positive Definite Matrices, Canonical Forms, and other applications as time permits."
+  },
+  {
+    "code": "EEGR 317",
+    "title": "Electronic Circuits",
+    "credits": "4",
+    "section": "Computer Science Electives",
+    "subsection": "Group B Electives",
+    "category": "Elective",
+    "requirements": "EEGR 215 completed with a grade of “C” or higher",
+    "description": "Analysis and design of electronic circuits employing diodes and active components such as Bipolar Transistors, FETs and Op- Amps. Includes an applications-oriented design laboratory."
+  },
+  {
+    "code": "COSC 470",
+    "title": "Artificial Intelligence",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 completed with a grade of “C” or higher",
+    "description": "This course is an introduction to the agent-oriented approach to artificial intelligence. The course covers: foundations and history of artificial intelligence, intelligent agents, search techniques, knowledge and reasoning, logic (propositional and predicate logic), reasoning with logic, forward and back- ward chaining, resolution, and applications (mechanical theorem proving and expert systems)."
+  },
+  {
+    "code": "COSC 472",
+    "title": "Introduction to Machine Learning",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "COSC 112 and MATH 312 completed with grades of “C” or higher",
+    "description": "This data science course is an introduction to machine learning and data mining.  You will develop a basic understanding of the principles of machine learning, data mining, statistical learning theory, supervised and unsupervised learning, decision trees, deep learning and derive practical solutions using predictive analytics.  We will also examine why algorithms play an essential role in Big Data Analysis."
+  },
+  {
+    "code": "COSC 460",
+    "title": "Computer Graphics",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 and MATH 241  completed with grades of “C” or higher",
+    "description": "This course involves discussion of some basic types of computer graphic devices, graphics and text modes, point plotting and line drawing, area filling, image array plotting, mathematics and generation of two and three dimensional transformations: translations, rotations, scaling, rendering reflections, orthogonal and perspective projections."
+  },
+  {
+    "code": "COSC 480",
+    "title": "Introduction to Image Processing and Analysis",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "COSC 220 completed with a grade of “C” or higher",
+    "description": "Digital image processing has come into widespread use in many fields, including medicine, industrial process monitoring, military and security applications, as well as satellite observation of the earth.  This course will cover many aspects of image processing and focuses on the theory and algorithms underlying a range of tasks including acquisition and formation, enhancement, color space conversion, histogram generations, segmentation, feature extraction and representation, and finally clustering and classification of image."
+  },
+  {
+    "code": "COSC 486",
+    "title": "Applied Quantum Computing",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "COSC 386 completed with a grade of “C” or higher",
+    "description": "This course presents the most important and/or popular applications of quantum computing.  It covers overview of quantum computing, quantum instruction sets, quantum software development kits, quantum programming languages, cryptography and Shor’s algorithm, quantum cryptography, quantum optimization, and quantum machine learning."
+  },
+  {
+    "code": "COSC 491",
+    "title": "Conference Course",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "Department permission only",
+    "description": "A student selecting this course will study an advanced topic in computer science individually under the guidance of a member of the Department. Prerequisite: Permission of Department Chairperson."
+  },
+  {
+    "code": "COSC 498",
+    "title": "Senior Internship",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "Must have 3.0 GPA and must be senior standing and Department Chair permission required to register.",
+    "description": "This course provides the opportunity for the student to obtain supervised work experience in the major at an off-campus site selected and approved by the Department Chairperson. Registration is limited to seniors with minimum 3.0 cumulative and major averages and requires approval of the Department Chairperson. The Dean may approve exceptions."
+  },
+  {
+    "code": "COSC 499",
+    "title": "Senior Research or Teaching/Tutorial Assistantship",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "Must have G.P.A of 3.0 and must be senior standing and must have Department Chair permission in order to register",
+    "description": "This course provides the opportunity for the student to attain first-hand research or teaching/tutorial experience under the supervision and mentorship of a tenure-track faculty member. Registration is limited to seniors with minimum of 3.0 cumulative and major averages and requires the approval of the Departmental Chairperson. The Dean may approve exceptions."
+  },
+  {
+    "code": "CLCO 471",
+    "title": "Data Analytics in Cloud",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group C Electives",
+    "category": "Elective",
+    "requirements": "CLCO 261 completed with a  grade of “C” or higher",
+    "description": "This course provides students an overview of the world of Big Data applications, open source Cloud Operating System (OpenStack), the Apache Hadoop Ecosystem, the MapReduce programming model, Spark framework and programming, and application for bioinformatics, machine learning and business such as marketing, analytics, retail, hospitality, consumer good, and defense.  The key objective of this course is to familiarize the students with Cloud Computing Applications used in Manipulating, Storing, and Analyzing Big Data."
+  },
+  {
+    "code": "INSS 391",
+    "title": "IT Infrastructure and Security",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group D Electives",
+    "category": "Elective",
+    "requirements": "INSS 360 completed with a gradeof “C” or higher",
+    "description": "This course provides an introduction to IT infrastructure and covers fundamental networking concepts. Topics include networking standards, the OSI model, transmission basics, networking media, introduction to TCP/IP protocols, topologies, ethernet standards, hardware, switching, addressing, and subnetting. It introduces students to wireless network, network security and how to design a secured local area network."
+  },
+  {
+    "code": "INSS 494",
+    "title": "Information Security and Risk Management",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group D Electives",
+    "category": "Elective",
+    "requirements": "INSS 391 completed with a grade of “C” or higher",
+    "description": "This course will prepare students to develop skills in information security and risk management. This is a survey course that will cover a range of information security topics, from technical areas such as cryptology and network security to a policy area such as risk management."
+  },
+  {
+    "code": "EEGR 481",
+    "title": "Introduction to Network Security",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group D Electives",
+    "category": "Elective",
+    "requirements": "EEGR 317 completed with a grade of “C” or higher",
+    "description": "This course will provide the basic concepts in the many aspects of security associated with today’s modern computer networks including local area networks and the internet. It includes the fundamentals of network architecture, vulnerabilities, and security mechanisms including firewalls, guards, intrusion detection, access control, malware scanners and biometrics."
+  },
+  {
+    "code": "EEGR 483",
+    "title": "Introduction to Security Management",
+    "credits": "3",
+    "section": "Computer Science Electives",
+    "subsection": "Group D Electives",
+    "category": "Elective",
+    "requirements": "EEGR 317 completed with a grade of “C” or higher",
+    "description": "This course will provide a basic background in the many aspects of security management associated with today’s modern communications and networks. It includes the fundamentals of Risk Analysis, Risk Management, Security Policy, Security Operations, Legal issues, Business issues and Secure Systems Development."
+  }
+]

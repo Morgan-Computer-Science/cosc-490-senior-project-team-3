@@ -3,8 +3,24 @@
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:#0e0e0e;
+    /* background-color:#0e0e0e; */
+    background-color: var(--bg);
     color:white;
+}
+
+/* grid overlay */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255, 1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255, 1) 1px, transparent 1px);
+    background-size: 56px 56px;
+    z-index: 0;
 }
 
 /* Main layout */
@@ -26,11 +42,15 @@ body{
 }
 
 .brand h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
     font-size:40px;
     margin-bottom:15px;
 }
 
 .brand p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
     color:#aaaaaa;
     line-height:1.5;
 }
@@ -39,26 +59,32 @@ body{
 /* Login Card */
 
 .login-card {
-    background:#1b1b1b;
+    /* background:#1b1b1b; */
+    background: var(--bg);
     padding:40px;
     width:320px;
     border-radius:10px;
     box-shadow:0 0 15px rgba(0,0,0,0.5);
+    z-index: 1;
 }
 
 .signup-card {
-    background: #1b1b1b;
+    /* background: #1b1b1b; */
+    background: var(--bg);
     padding: 40px;
     width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .login-card > h2 {
+    font-family: 'Open Sans', sans-serif;
     margin-bottom:25px;
 }
 
 .signup-card > h2 {
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 25px;
 }
 
@@ -73,6 +99,7 @@ body{
 /* Inputs */
 
 .form label {
+    font-family: 'Open Sans', sans-serif;
     font-size:12px;
     color:#aaa;
 }
@@ -89,7 +116,10 @@ body{
     margin-bottom: 20px;
     border: none;
     border-radius: 4px;
-    background: #2b2b2b;
+    background: #222;
+    border: 1px solid #2D2D2D;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: white;
 }
 
@@ -163,10 +193,11 @@ body{
     padding:12px;
     border:none;
     border-radius:6px;
-    background:#ff8c32;
+    background: var(--accent);
     color:white;
     font-weight:bold;
     cursor:pointer;
+    transition: background-color 0.15 ease;
 }
 
 .submit:hover{
@@ -179,6 +210,7 @@ body{
     text-decoration: underline;
     color: #888;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .sign-up:hover {
