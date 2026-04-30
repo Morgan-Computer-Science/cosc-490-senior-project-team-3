@@ -5,7 +5,7 @@ from fastapi import APIRouter, Request, Form
 from pydantic import BaseModel, Field
 
 from lib.types import UserRegistration, UserLogin
-from lib.database import register_user
+from lib.database import register_user, fetch_courses
 
 
 VERSION = 'v1'
@@ -23,5 +23,9 @@ async def signup(data: Annotated[UserRegistration, Form()]) -> None:
 @router.post("/login", name="login_endpoint")
 async def login(data: Annotated[UserLogin, Form()]):
     pass
+
+@router.get("/courses", name="courses_endpoint")
+async def get_courses():
+    return fetch_courses()
 
 import api.records

@@ -14,140 +14,109 @@
             <p>Explore our comprehensive course catalog across multiple disciplines</p>
         </div>
 
-        <!-- Mathematics Curriculum -->
-        <div class="curriculum-section">
-            <h2 class="curriculum-title math">📐 Mathematics</h2>
-            <div class="courses-grid">
-                <!-- Math 241 -->
-                <div class="course-card math">
-                    <div class="course-code">MATH 241</div>
-                    <h3 class="course-title">Calculus I</h3>
-                    <p class="course-description">
-                        Introduction to differential calculus including limits, derivatives, and applications to optimization problems.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 4</span>
-                        <span class="course-semester">Fall</span>
-                    </div>
-                </div>
-
-                <!-- Math 321 -->
-                <div class="course-card math">
-                    <div class="course-code">MATH 321</div>
-                    <h3 class="course-title">Linear Algebra</h3>
-                    <p class="course-description">
-                        Study of vector spaces, matrices, eigenvalues, and applications to systems of equations and transformations.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 3</span>
-                        <span class="course-semester">Spring</span>
-                    </div>
-                </div>
-
-                <!-- Math 331 -->
-                <div class="course-card math">
-                    <div class="course-code">MATH 331</div>
-                    <h3 class="course-title">Discrete Mathematics</h3>
-                    <p class="course-description">
-                        Fundamentals of set theory, logic, combinatorics, graph theory, and proof techniques.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 3</span>
-                        <span class="course-semester">Fall</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Computer Science Curriculum -->
-        <div class="curriculum-section">
-            <h2 class="curriculum-title cs">💻 Computer Science</h2>
-            <div class="courses-grid">
-                <!-- COSC 111 -->
-                <div class="course-card cs">
-                    <div class="course-code">COSC 111</div>
-                    <h3 class="course-title">Introduction to Programming</h3>
-                    <p class="course-description">
-                        Fundamentals of programming using Python including variables, control flow, functions, and basic data structures.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 4</span>
-                        <span class="course-semester">Fall</span>
-                    </div>
-                </div>
-
-                <!-- COSC 352 -->
-                <div class="course-card cs">
-                    <div class="course-code">COSC 352</div>
-                    <h3 class="course-title">Data Structures & Algorithms</h3>
-                    <p class="course-description">
-                        Advanced study of data structures including stacks, queues, trees, and sorting/searching algorithms.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 4</span>
-                        <span class="course-semester">Spring</span>
-                    </div>
-                </div>
-
-                <!-- COSC 490 -->
-                <div class="course-card cs">
-                    <div class="course-code">COSC 490</div>
-                    <h3 class="course-title">Senior Project</h3>
-                    <p class="course-description">
-                        Capstone project course where students develop a comprehensive software solution addressing real-world problems.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 4</span>
-                        <span class="course-semester">Spring</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- General Education Curriculum -->
-        <div class="curriculum-section">
-            <h2 class="curriculum-title general">🎓 General Education</h2>
-            <div class="courses-grid">
-                <!-- HUMA 201 -->
-                <div class="course-card general">
-                    <div class="course-code">HUMA 201</div>
-                    <h3 class="course-title">World Literature</h3>
-                    <p class="course-description">
-                        Exploration of major literary works from diverse cultures and historical periods, analyzing themes and contexts.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 3</span>
-                        <span class="course-semester">Fall</span>
-                    </div>
-                </div>
-
-                <!-- WGST 301 -->
-                <div class="course-card general">
-                    <div class="course-code">WGST 301</div>
-                    <h3 class="course-title">Gender Studies</h3>
-                    <p class="course-description">
-                        Critical examination of gender issues in society, exploring cultural perspectives, history, and contemporary challenges.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 3</span>
-                        <span class="course-semester">Spring</span>
-                    </div>
-                </div>
-
-                <!-- CHEM 101 -->
-                <div class="course-card general">
-                    <div class="course-code">CHEM 101</div>
-                    <h3 class="course-title">General Chemistry</h3>
-                    <p class="course-description">
-                        Introduction to chemistry principles including atomic structure, bonding, reactions, and laboratory techniques.
-                    </p>
-                    <div class="course-info">
-                        <span class="course-credits">Credits: 4</span>
-                        <span class="course-semester">Fall</span>
-                    </div>
-                </div>
-            </div>
+        <div id="courses-content" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p>Loading courses...</p>
         </div>
     </div>
+
+    <script>
+        // Emoji map for disciplines
+        const disciplineEmojis = {
+            'COSC': '💻',
+            'MATH': '📐',
+            'ENGL': '📚',
+            'HUMA': '🎓',
+            'WGST': '👥',
+            'CHEM': '🧪',
+            'EEGR': '⚡',
+            'CLCO': '☁️',
+            'ORNS': '🎓'
+        };
+
+        // Discipline names for display
+        const disciplineNames = {
+            'COSC': 'Computer Science',
+            'MATH': 'Mathematics',
+            'ENGL': 'English',
+            'HUMA': 'Humanities',
+            'WGST': 'Women\'s & Gender Studies',
+            'CHEM': 'Chemistry',
+            'EEGR': 'Electrical Engineering',
+            'CLCO': 'Cloud Computing',
+            'ORNS': 'Orientation'
+        };
+
+        // Fetch and render courses
+        async function loadCourses() {
+            const container = document.getElementById('courses-content');
+            
+            try {
+                const response = await fetch('/api/v1/courses');
+                if (!response.ok) throw new Error('Failed to fetch courses');
+                
+                const courses = await response.json();
+                
+                // Group courses by discipline
+                const groupedByDiscipline = {};
+                courses.forEach(course => {
+                    if (!groupedByDiscipline[course.discipline]) {
+                        groupedByDiscipline[course.discipline] = [];
+                    }
+                    groupedByDiscipline[course.discipline].push(course);
+                });
+                
+                // Clear container and build HTML
+                container.innerHTML = '';
+                
+                // Sort disciplines alphabetically
+                const sortedDisciplines = Object.keys(groupedByDiscipline).sort();
+                
+                sortedDisciplines.forEach(discipline => {
+                    const courses = groupedByDiscipline[discipline];
+                    const emoji = disciplineEmojis[discipline] || '📖';
+                    const name = disciplineNames[discipline] || discipline;
+                    
+                    const section = document.createElement('div');
+                    section.className = 'curriculum-section';
+                    
+                    const title = document.createElement('h2');
+                    title.className = `curriculum-title ${discipline.toLowerCase()}`;
+                    title.textContent = `${emoji} ${name}`;
+                    section.appendChild(title);
+                    
+                    const grid = document.createElement('div');
+                    grid.className = 'courses-grid';
+                    
+                    courses.forEach(course => {
+                        const card = document.createElement('div');
+                        card.className = `course-card ${discipline.toLowerCase()}`;
+                        
+                        card.innerHTML = `
+                            <div class="course-code">${course.discipline} ${course.code}</div>
+                            <h3 class="course-title">${course.title}</h3>
+                            <p class="course-description">
+                                ${course.description || 'No description available.'}
+                            </p>
+                            <div class="course-info">
+                                <span class="course-credits">Credits: ${course.credits}</span>
+                            </div>
+                        `;
+                        
+                        grid.appendChild(card);
+                    });
+                    
+                    section.appendChild(grid);
+                    container.appendChild(section);
+                });
+                
+            } catch (error) {
+                console.error('Error loading courses:', error);
+                container.innerHTML = '<p style="color: red;">Failed to load courses. Please try again later.</p>';
+            }
+        }
+        
+        // Load courses when page loads
+        document.addEventListener('DOMContentLoaded', loadCourses);
+    </script>
 </body>
 </html>

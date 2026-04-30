@@ -4,7 +4,7 @@ import os
 
 from typing import Annotated
 
-from lib.types import UserRegistration, UserLogin
+from lib.types import UserRegistration, UserLogin, Course
 
 __dir__: str = os.path.dirname(__file__)
 
@@ -66,3 +66,28 @@ def register_user(data: UserRegistration) -> None:
 
     # INSERT INTO `users` (email, first_name, last_name, discipline, credits_earned, gpa, privilege)
     # VALUES ('test@example.com', 'user', 'first', 'last', 'Computer Science', 70, 3.95, 1);
+
+def fetch_courses() -> list[Course]:
+    cursor: sqlite3.Cursor = database.cursor()
+    
+    cursor.execute('''
+        SELECT id, title, discipline, code, credits, description 
+        FROM courses 
+        ORDER BY discipline, code
+    ''')
+    
+    rows = cursor.fetchall()
+    courses = []
+    
+    for row in rows:
+        course = Course(
+            id=row[0],
+            title=row[1],
+            discipline=row[2],
+            code=row[3],
+            credits=row[4],
+            description=row[5]
+        )
+        courses.append(course)
+    
+    return courses
