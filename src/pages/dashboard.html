@@ -1,63 +1,517 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BearViSor — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}"/>
-        <link rel="stylesheet" href="{{ url_for('static', path='/css/dashboard.css') }}"/>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
+<div class="app">
+	<!-- Sidebar -->
+	<aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 5.5 C3 5 3.4 4.5 4 4.5 L10.5 4.5 C11.3 4.5 12 5.2 12 6 L12 19.5 C11 18 9.5 17.5 8 17.5 L4 17.5 C3.4 17.5 3 17 3 16.5 Z"/>
+                <path d="M21 5.5 C21 5 20.6 4.5 20 4.5 L13.5 4.5 C12.7 4.5 12 5.2 12 6 L12 19.5 C13 18 14.5 17.5 16 17.5 L20 17.5 C20.6 17.5 21 17 21 16.5 Z" opacity="0.65"/>
+            </svg>
+      </div>
+      <div>
+        <div class="brand-name">BearViSor</div>
+        <div class="brand-sub">AI Advisor</div>
+      </div>
+    </div>
 
-    <body>
-        <h2 id="dash-heading">Dashboard</h2>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" href="{{ url_for('dashboard') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+        </svg>
+        Dashboard
+	  </a>
+      <a class="nav-item" href="{{ url_for('chat') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Advisor Chat
+	  </a>
+      <a class="nav-item" href="{{ url_for('courses') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>
+        </svg>
+        Schedule
+	  </a>
+      <a class="nav-item" href="{{ url_for('build') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+			<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+			<line x1="16" y1="2" x2="16" y2="6"/>
+			<line x1="8" y1="2" x2="8" y2="6"/>
+			<line x1="3" y1="10" x2="21" y2="10"/>
+			<path d="M15.5 17.5l.6-1.4 1.4-.6-1.4-.6-.6-1.4-.6 1.4-1.4.6 1.4.6z" fill="currentColor"/>
+		</svg>
+        Builder
+      </a>
 
-        <div class="dashboard">
+      <div class="nav-label" style="margin-top: 16px;">Resources</div>
 
-            <div class="card gpa">
-                <h2 class="card-title">GPA</h2>
-                <h3 class="card-value">3.49</h3>
-            </div>
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Advisors
+      </button>
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Catalog
+      </button>
+      <a class="nav-item" href="{{ url_for('help') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        Help
+	</a>
+    </nav>
 
-            <div class="card progress">
-                <h2 class="card-title">Degree Progress</h2>
-                <h3 class="card-value">60%</h3>
-
-                <div class="progress-bar">
-                    <div class="progress" style="width: 60%"></div>
-                </div>
-            </div>
-
-            <div class="card credits">
-                <h2 class="card-title">Credits</h2>
-                <h3 class="card-value">73 / 120</h3>
-
-                <div class="progress-bar">
-                    <div class="progress" style="width: 40%"></div>
-                </div>
-            </div>
-
-            <div class="card chat">
-                <h2 class="card-title" style="color: #FF710C">AI Agent Query</h2>
-                
-                <p class="chat-question">Please give me a schedule recommendation for the next semester.
-I am aiming to have a balanced workload that will not overwhelm me. 
-
-I want to take Computer Networks so please include that class and any other classes that balance around that.
-</p>
-
-                <p class="chat-response">
-                    Okay, based on your completed courses and the desire to take Computer Networks (COSC 349), here's a balanced schedule recommendation for your next semester:
-
-**Core Courses:**
-
-*   **COSC 349 - Computer Networks (3 Credits):**  This is your primary goal.  It's important to take this now to stay on track and it's a good foundational course.
-
-*   **COSC 281 - Discrete Structures (3 Credits):** This course is listed as a required course and is a good complement to Computer Networks as it provides the mathematical foundations for many concepts in computer science.
-
-**Supporting/Elective Course:**
-
-*   **MATH 331 - Applied Probability and Statistics (3 Credits):** Given your Math background, this is a logical and relatively manageable course.  It provides valuable skills applicable to various areas of computer science, including networks, data science, and AI. This will balance your schedule, and give your brain a break while still learning.
-                </p>
-            </div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="user-initials">__</div>
+        <div class="user-meta">
+          <div class="user-name" id="user-display">__ __</div>
+          <div class="user-role">Computer Science</div>
         </div>
-    </body>
+        <a class="icon-btn" href="{{ url_for('settings') }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+	<!-- Main -->
+	<main class="main">
+		<header class="topbar">
+			<div class="search">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+				<input type="text" placeholder="Search courses, advisors, plans..." />
+			</div>
+			<div class="topbar-actions">
+				<button class="icon-btn">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+					<span class="notif-dot"></span>
+				</button>
+				<div class="divider-v"></div>
+				<a class="btn-primary" href="{{ url_for('chat') }}">
+					Launch chat
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+				</a>
+			</div>
+		</header>
+
+		<div class="content">
+			<!-- Greeting -->
+			<div class="greeting">
+				<!-- <div class="eyebrow">WELCOME BACK</div> -->
+                <div class="eyebrow">DASHBOARD</div>
+				<h1 id="greeting">Hi _ <span class="muted">— here's where you stand.</span></h1>
+				<p>Spring 2026 registration opens in 12 days. You're on track to graduate Spring 2027.</p>
+			</div>
+
+			<!-- Metrics -->
+			<div class="metrics">
+				<div class="metric accent">
+					<div class="metric-content">
+						<div class="metric-label">DEGREE PROGRESS</div>
+						<div class="metric-value accent" id="completion-metric">68%</div>
+						<div class="metric-sub" id="credit-completion">82 of 120 credits</div>
+						<div class="progress-bar"><div class="progress-fill" id="completion-bar"></div></div>
+					</div>
+				</div>
+				<div class="metric">
+					<div class="metric-content">
+						<div class="metric-label">CURRENT GPA</div>
+						<div class="metric-value" id="gpa-metric">3.74</div>
+						<div class="metric-sub">↑ 0.08 from last term</div>
+					</div>
+				</div>
+				<div class="metric">
+					<div class="metric-content">
+						<div class="metric-label">ENROLLED</div>
+						<div class="metric-value" id="credits-metric">13 cr</div>
+						<div class="metric-sub" id="enrolled-term">Spring 2026</div>
+					</div>
+				</div>
+				<div class="metric">
+					<div class="metric-content">
+						<div class="metric-label">GRAD ON TIME</div>
+						<div class="metric-value success">Yes</div>
+						<div class="metric-sub">Spring 2027</div>
+					</div>
+				</div>
+			</div>
+
+            <div class="dash-grid">
+
+                <div class="card">
+                    <div class="card-head">
+                        <div>
+                            <div class="card-title">GPA by semester</div>
+                            <div class="card-sub">Cumulative performance across 5 semesters</div>
+                        </div>
+                    </div>
+
+                <div class="chart">
+                    <div class="chart-grid">
+                    <div class="chart-grid-line" data-label="4.0"></div>
+                    <div class="chart-grid-line" data-label="3.0"></div>
+                    <div class="chart-grid-line" data-label="2.0"></div>
+                    <div class="chart-grid-line" data-label="1.0"></div>
+                    <div class="chart-grid-line" data-label="0.0"></div>
+                    </div>
+                    <div class="chart-bars" id="bar-chart">
+                        <!-- <div class="bar-col">
+                            <div class="bar" style="height: 0%;"><span class="bar-value">3.00</span></div>
+                            <div class="bar-label">S1</div>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="height: 0%;"><span class="bar-value">3.30</span></div>
+                            <div class="bar-label">S2</div>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="height: 0%;"><span class="bar-value">2.65</span></div>
+                            <div class="bar-label">S3</div>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="height: 0%;"><span class="bar-value">3.50</span></div>
+                            <div class="bar-label">S4</div>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="height: 0%;"><span class="bar-value">3.85</span></div>
+                            <div class="bar-label">S5</div>
+                        </div> -->
+                    </div>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-head">
+                    <div>
+                    <div class="card-title">Current courses</div>
+                    <div class="card-sub" id="current-term">Spring 2026 · 4 enrolled</div>
+                    </div>
+                </div>
+
+                <div class="courses" id="courses">
+
+                    <div class="course-item">
+                    <div class="course-code">CSI<br>3321</div>
+                    <div class="course-body">
+                        <div class="course-name">Algorithms</div>
+                        <div class="course-meta">
+                        <div class="course-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            MWF 10:00
+                        </div>
+                        <div class="course-meta-item">Dr. Parker</div>
+                        </div>
+                    </div>
+                    <span class="pill-sm green">A-</span>
+                    </div>
+
+                    <div class="course-item">
+                    <div class="course-code">CSI<br>4352</div>
+                    <div class="course-body">
+                        <div class="course-name">Machine Learning</div>
+                        <div class="course-meta">
+                        <div class="course-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            TR 2:00
+                        </div>
+                        <div class="course-meta-item">Dr. Liu</div>
+                        </div>
+                    </div>
+                    <span class="pill-sm orange">B+</span>
+                    </div>
+
+                    <div class="course-item">
+                    <div class="course-code">STA<br>3381</div>
+                    <div class="course-body">
+                        <div class="course-name">Probability &amp; Statistics</div>
+                        <div class="course-meta">
+                        <div class="course-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            MWF 1:00
+                        </div>
+                        <div class="course-meta-item">Dr. Navarro</div>
+                        </div>
+                    </div>
+                    <span class="pill-sm green">A</span>
+                    </div>
+
+                    <div class="course-item">
+                    <div class="course-code">ENG<br>2304</div>
+                    <div class="course-body">
+                        <div class="course-name">Technical Writing</div>
+                        <div class="course-meta">
+                        <div class="course-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            TR 9:30
+                        </div>
+                        <div class="course-meta-item">Prof. Okafor</div>
+                        </div>
+                    </div>
+                    <span class="pill-sm stone">—</span>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+			<!-- Chat + Recent -->
+			<!-- <div class="grid-3">
+				<div class="panel">
+					<div class="chat-chrome">
+						<div class="chat-dots"><span></span><span></span><span></span></div>
+						<span class="chat-url mono">bearvisor.ai</span>
+						<div class="chat-active">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-5 4.4 1.6 6L12 17.3 7.4 20.4 9 14.4 4 10l6.1-1.2z"/></svg>
+							Active session
+						</div>
+					</div>
+
+					<div class="chat-body">
+						<div class="msg user">
+							<div class="msg-bubble">Can I still graduate on time if I change my minor to Stats?</div>
+							<div class="msg-avatar user">J</div>
+						</div>
+						<div class="msg bot">
+							<div class="msg-avatar bot">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+							</div>
+							<div class="msg-bubble">Yes — you'd need 3 more courses. Two fit in Fall, one in Spring. Want me to draft a plan?</div>
+						</div>
+						<div class="suggestions">
+							<button class="suggestion">Draft the plan</button>
+							<button class="suggestion">Compare minors</button>
+						</div>
+					</div>
+
+					<div class="chat-input-wrap">
+						<div class="chat-input">
+							<input type="text" placeholder="Ask about any course..." />
+							<button class="send-btn">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-padded">
+					<div class="panel-header">
+						<h3 class="panel-title">Recent questions</h3>
+						<button class="panel-link">See all</button>
+					</div>
+					<div class="recent-list">
+						<button class="recent-item">
+							<div class="recent-row">
+								<svg class="msg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+								<div style="flex: 1; min-width: 0;">
+									<div class="recent-q">Can I still graduate on time if I change my minor to Stats?</div>
+									<div class="recent-time">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+										2h ago
+									</div>
+								</div>
+							</div>
+						</button>
+						<button class="recent-item">
+							<div class="recent-row">
+								<svg class="msg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+								<div style="flex: 1; min-width: 0;">
+									<div class="recent-q">What are the prereqs for CS 374?</div>
+									<div class="recent-time">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+										Yesterday
+									</div>
+								</div>
+							</div>
+						</button>
+						<button class="recent-item">
+							<div class="recent-row">
+								<svg class="msg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+								<div style="flex: 1; min-width: 0;">
+									<div class="recent-q">Compare Data Science and Stats minors</div>
+									<div class="recent-time">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+										2 days ago
+									</div>
+								</div>
+							</div>
+						</button>
+					</div>
+					<button class="new-conv-btn">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+						New conversation
+					</button>
+				</div>
+			</div> -->
+
+			<!-- Schedule + Meetings -->
+			<div class="grid-3">
+				<!-- Schedule -->
+				<div class="panel panel-padded">
+					<div class="schedule-header">
+						<div>
+							<h3 class="schedule-title">Spring 2026 Schedule</h3>
+							<p class="schedule-sub">13 credits • 1 course on waitlist</p>
+						</div>
+						<button class="btn-secondary">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+							Edit schedule
+						</button>
+					</div>
+					<div class="course-list">
+						<div class="course-row">
+							<div class="course-bar" style="opacity: 0.3;"></div>
+							<div class="course-info">
+								<div class="course-line">
+									<span class="course-code mono">CS 374</span>
+									<span class="course-name">Algorithms & Models of Computation</span>
+								</div>
+								<div class="course-credits">4 credits</div>
+							</div>
+							<div class="course-status registered">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+								Registered
+							</div>
+							<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+						</div>
+						<div class="course-row">
+							<div class="course-bar" style="opacity: 0.45;"></div>
+							<div class="course-info">
+								<div class="course-line">
+									<span class="course-code mono">STAT 410</span>
+									<span class="course-name">Statistics & Probability II</span>
+								</div>
+								<div class="course-credits">3 credits</div>
+							</div>
+							<div class="course-status registered">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+								Registered
+							</div>
+							<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+						</div>
+						<div class="course-row">
+							<div class="course-bar" style="opacity: 0.6;"></div>
+							<div class="course-info">
+								<div class="course-line">
+									<span class="course-code mono">CS 411</span>
+									<span class="course-name">Database Systems</span>
+								</div>
+								<div class="course-credits">3 credits</div>
+							</div>
+							<div class="course-status waitlist">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+								Waitlist #3
+							</div>
+							<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+						</div>
+						<div class="course-row">
+							<div class="course-bar" style="opacity: 0.75;"></div>
+							<div class="course-info">
+								<div class="course-line">
+									<span class="course-code mono">MATH 415</span>
+									<span class="course-name">Applied Linear Algebra</span>
+								</div>
+								<div class="course-credits">3 credits</div>
+							</div>
+							<div class="course-status registered">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+								Registered
+							</div>
+							<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+						</div>
+					</div>
+				</div>
+
+				<!-- Meetings -->
+				<div class="panel panel-padded">
+					<div class="panel-header">
+						<h3 class="panel-title">Upcoming meetings</h3>
+						<button class="panel-link">Calendar</button>
+					</div>
+					<div class="meeting-list">
+						<div class="meeting">
+							<div class="meeting-top">
+								<div class="meeting-avatar">P</div>
+								<div class="meeting-info">
+									<div class="meeting-name">Dr. Patel</div>
+									<div class="meeting-topic">Spring registration review</div>
+								</div>
+							</div>
+							<div class="meeting-meta">
+								<div class="meeting-date">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+									Tue, May 5
+								</div>
+								<span class="dot-sep"></span>
+								<div class="meeting-time">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+									2:30 PM
+								</div>
+							</div>
+						</div>
+						<div class="meeting">
+							<div class="meeting-top">
+								<div class="meeting-avatar">C</div>
+								<div class="meeting-info">
+									<div class="meeting-name">Prof. Chen</div>
+									<div class="meeting-topic">Research opportunities</div>
+								</div>
+							</div>
+							<div class="meeting-meta">
+								<div class="meeting-date">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+									Thu, May 7
+								</div>
+								<span class="dot-sep"></span>
+								<div class="meeting-time">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+									10:00 AM
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="book-btn">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+						Book new meeting
+					</button>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+
+<script src="{{ url_for('static', path='/js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', path='/js/loadprofile.js' )}}"></script>
+
+<script>
+	// Nav switching
+	document.querySelectorAll('.nav-item').forEach(item => {
+		item.addEventListener('click', () => {
+			document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+			item.classList.add('active');
+		});
+	});
+</script>
+
+</body>
 </html>

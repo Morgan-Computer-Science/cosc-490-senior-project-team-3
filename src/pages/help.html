@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BearViSor — Help & Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ url_for('static', path='/css/help.css' )}}" />
+<link rel="stylesheet" href="{{ url_for('static', path='/css/global.css' )}}" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-effects">
+  <div class="grid-overlay"></div>
+  <div class="glow"></div>
+</div>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 5.5 C3 5 3.4 4.5 4 4.5 L10.5 4.5 C11.3 4.5 12 5.2 12 6 L12 19.5 C11 18 9.5 17.5 8 17.5 L4 17.5 C3.4 17.5 3 17 3 16.5 Z"/>
+                <path d="M21 5.5 C21 5 20.6 4.5 20 4.5 L13.5 4.5 C12.7 4.5 12 5.2 12 6 L12 19.5 C13 18 14.5 17.5 16 17.5 L20 17.5 C20.6 17.5 21 17 21 16.5 Z" opacity="0.65"/>
+            </svg>
+      </div>
+      <div>
+        <div class="brand-name">BearViSor</div>
+        <div class="brand-sub">AI Advisor</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="{{ url_for('dashboard') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+        </svg>
+        Dashboard
+	  </a>
+      <a class="nav-item" href="{{ url_for('chat') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Advisor Chat
+	  </a>
+      <a class="nav-item" href="{{ url_for('courses') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>
+        </svg>
+        Schedule
+	  </a>
+      <a class="nav-item" href="{{ url_for('build') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+			<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+			<line x1="16" y1="2" x2="16" y2="6"/>
+			<line x1="8" y1="2" x2="8" y2="6"/>
+			<line x1="3" y1="10" x2="21" y2="10"/>
+			<path d="M15.5 17.5l.6-1.4 1.4-.6-1.4-.6-.6-1.4-.6 1.4-1.4.6 1.4.6z" fill="currentColor"/>
+		</svg>
+        Builder
+      </a>
+
+      <div class="nav-label" style="margin-top: 16px;">Resources</div>
+
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Advisors
+      </button>
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Catalog
+      </button>
+      <a class="nav-item active" href="{{ url_for('help') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        Help
+	  </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="user-initials">__</div>
+        <div class="user-meta">
+          <div class="user-name" id="user-display">__ __</div>
+          <div class="user-role">Computer Science</div>
+        </div>
+        <a class="icon-btn" href="{{ url_for('settings') }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a>Dashboard</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="current">Help & Support</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h1>How can we <span class="accent">help?</span></h1>
+        <p>Find answers, learn how the agent works, or talk to a real person from the BearViSor team.</p>
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" placeholder="Search help articles, FAQs, and guides..." />
+          <span class="search-shortcut">⌘ K</span>
+        </div>
+        <div class="search-results-info" id="searchInfo"></div>
+      </div>
+
+      <!-- Quick actions -->
+      <section class="quick-actions">
+        <div class="section-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+            Quick actions
+          </h2>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-card">
+            <div class="quick-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="quick-card-title">Ask BearViSor</div>
+            <div class="quick-card-desc">Skip the docs — just ask the agent your question and get an answer in seconds.</div>
+          </button>
+          <button class="quick-card">
+            <div class="quick-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <div class="quick-card-title">Watch the demo</div>
+            <div class="quick-card-desc">3-minute walkthrough of the dashboard, schedule builder, and chat agent.</div>
+          </button>
+          <button class="quick-card">
+            <div class="quick-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="quick-card-title">Browse docs</div>
+            <div class="quick-card-desc">Full reference for advisors and admins building on the BearViSor platform.</div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Getting started -->
+      <section class="getting-started">
+        <div class="section-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 5.8L20 10l-5 4.4 1.6 6L12 17.3 7.4 20.4 9 14.4 4 10l6.1-1.2z"/></svg>
+            Getting started
+          </h2>
+          <a class="section-link">
+            All guides
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="gs-grid">
+          <button class="gs-card">
+            <div class="gs-step">01</div>
+            <div class="gs-content">
+              <div class="gs-title">Connect your academic systems</div>
+              <div class="gs-desc">Link Canvas and DegreeWorks so the agent has live data to work with.</div>
+              <div class="gs-meta">
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  3 min read
+                </div>
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  Setup guide
+                </div>
+              </div>
+            </div>
+            <div class="gs-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </button>
+
+          <button class="gs-card">
+            <div class="gs-step">02</div>
+            <div class="gs-content">
+              <div class="gs-title">Ask your first question</div>
+              <div class="gs-desc">Try natural questions like "what should I take next semester?" — the agent does the work.</div>
+              <div class="gs-meta">
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  2 min read
+                </div>
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  Tutorial
+                </div>
+              </div>
+            </div>
+            <div class="gs-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </button>
+
+          <button class="gs-card">
+            <div class="gs-step">03</div>
+            <div class="gs-content">
+              <div class="gs-title">Build your first schedule</div>
+              <div class="gs-desc">Describe what you want — credits, electives, time-of-day — and let the agent generate a conflict-free plan.</div>
+              <div class="gs-meta">
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  4 min read
+                </div>
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/></svg>
+                  Walkthrough
+                </div>
+              </div>
+            </div>
+            <div class="gs-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </button>
+
+          <button class="gs-card">
+            <div class="gs-step">04</div>
+            <div class="gs-content">
+              <div class="gs-title">Book a meeting with your advisor</div>
+              <div class="gs-desc">Find your advisor's calendar, share generated schedules, and meet without the email back-and-forth.</div>
+              <div class="gs-meta">
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  2 min read
+                </div>
+                <div class="gs-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  Workflow
+                </div>
+              </div>
+            </div>
+            <div class="gs-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <div class="section-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Frequently asked
+          </h2>
+        </div>
+
+        <div class="faq-categories" id="faqCategories">
+          <button class="faq-cat active" data-cat="all">All <span class="faq-cat-count">12</span></button>
+          <button class="faq-cat" data-cat="getting-started">Getting started <span class="faq-cat-count">3</span></button>
+          <button class="faq-cat" data-cat="schedules">Schedules <span class="faq-cat-count">4</span></button>
+          <button class="faq-cat" data-cat="agent">AI Agent <span class="faq-cat-count">3</span></button>
+          <button class="faq-cat" data-cat="account">Account <span class="faq-cat-count">2</span></button>
+        </div>
+
+        <div class="faq-list" id="faqList"></div>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <div class="section-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Still need help?
+          </h2>
+        </div>
+
+        <div class="contact-section">
+          <div class="contact-text">
+            <h3>Talk to the BearViSor team</h3>
+            <p>Can't find what you need? Reach out and a real person will get back to you, usually within a few hours during weekdays.</p>
+          </div>
+          <div class="contact-actions">
+            <button class="btn-primary" id="contactBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Start a conversation
+            </button>
+            <button class="btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Send email
+            </button>
+          </div>
+        </div>
+
+        <div class="contact-methods">
+          <button class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="cm-title">Live chat</div>
+            <div class="cm-desc">Real-time chat with our support team</div>
+            <div class="cm-meta">
+              <span class="live-dot"></span>
+              Online now · ~3 min reply
+            </div>
+          </button>
+
+          <button class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="cm-title">Email support</div>
+            <div class="cm-desc">help@bearvisor.ai</div>
+            <div class="cm-meta">Replies within 24 hours</div>
+          </button>
+
+          <button class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="cm-title">Find your advisor</div>
+            <div class="cm-desc">For academic policy questions</div>
+            <div class="cm-meta">Dr. Patel · CS Dept</div>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastText">Opening chat...</span>
+</div>
+
+<script src="{{ url_for('static', path='/js/help.js') }}"></script>
+<script src="{{ url_for('static', path='/js/loadprofile.js' )}}"></script>
+
+</body>
+</html>

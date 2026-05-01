@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BearViSor — Schedule Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ url_for('static', path='/css/builder.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', path='/css/global.css') }}" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- <div class="bg-effects">
+  <div class="grid-overlay"></div>
+  <div class="glow"></div>
+</div> -->
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 5.5 C3 5 3.4 4.5 4 4.5 L10.5 4.5 C11.3 4.5 12 5.2 12 6 L12 19.5 C11 18 9.5 17.5 8 17.5 L4 17.5 C3.4 17.5 3 17 3 16.5 Z"/>
+                <path d="M21 5.5 C21 5 20.6 4.5 20 4.5 L13.5 4.5 C12.7 4.5 12 5.2 12 6 L12 19.5 C13 18 14.5 17.5 16 17.5 L20 17.5 C20.6 17.5 21 17 21 16.5 Z" opacity="0.65"/>
+            </svg>
+      </div>
+      <div>
+        <div class="brand-name">BearViSor</div>
+        <div class="brand-sub">AI Advisor</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="{{ url_for('dashboard') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+        </svg>
+        Dashboard
+	  </a>
+      <a class="nav-item" href="{{ url_for('chat') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Advisor Chat
+	  </a>
+      <a class="nav-item" href="{{ url_for('courses') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>
+        </svg>
+        Schedule
+	  </a>
+      <a class="nav-item active" href="{{ url_for('build') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+        <path d="M15.5 17.5l.6-1.4 1.4-.6-1.4-.6-.6-1.4-.6 1.4-1.4.6 1.4.6z" fill="currentColor"/>
+      </svg>
+        Builder
+      </a>
+
+      <div class="nav-label" style="margin-top: 16px;">Resources</div>
+
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Advisors
+      </button>
+      <button class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Catalog
+      </button>
+      <a class="nav-item" href="{{ url_for('help') }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        Help
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="user-initials">__</div>
+        <div class="user-meta">
+          <div class="user-name" id="user-display">__ __</div>
+          <div class="user-role">Computer Science</div>
+        </div>
+        <a class="icon-btn" href="{{ url_for('settings') }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a>Dashboard</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="current">Schedule Builder</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-secondary" id="historyBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Past plans
+        </button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Page header -->
+      <div class="page-header">
+        <div class="eyebrow">AI SCHEDULE BUILDER</div>
+        <h1>Build a schedule</h1>
+        <p>Tell BearViSor what you want — required courses, electives you're interested in, time-of-day preferences, workload — and it'll generate a conflict-free schedule for the term.</p>
+      </div>
+
+      <!-- Prompt section -->
+      <div class="prompt-section" id="promptSection">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 5.8L20 10l-5 4.4 1.6 6L12 17.3 7.4 20.4 9 14.4 4 10l6.1-1.2z"/></svg>
+          </div>
+          <div class="prompt-header-text">
+            <div class="prompt-title">Describe your ideal schedule</div>
+            <div class="prompt-sub">BearViSor will check prereqs, time conflicts, and degree requirements.</div>
+          </div>
+          <select class="term-selector" id="termSelector">
+            <option value="fa2026">Fall 2026</option>
+            <option value="sp2027">Spring 2027</option>
+            <option value="su2026">Summer 2026</option>
+          </select>
+        </div>
+
+        <div class="prompt-body">
+          <textarea
+            class="prompt-textarea"
+            id="promptInput"
+            placeholder="E.g. 'Build me a Fall 2026 schedule with 15 credits. I need CS 421 and CS 461 for my major. I want one ML course, prefer no classes before 10am, and want Fridays light.'"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="prompt-footer">
+          <div class="prompt-suggestions" id="suggestions">
+            <button class="suggestion-chip" data-prompt="Build me a 15-credit Fall 2026 schedule that finishes my major requirements. Prefer no classes before 10am and a light Friday.">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              Finish requirements
+            </button>
+            <button class="suggestion-chip" data-prompt="Heavy ML focus — 4 ML/stats classes plus one elective. Around 13-15 credits. Don't worry about Fridays.">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg>
+              ML focus
+            </button>
+            <button class="suggestion-chip" data-prompt="Lighter term — 12 credits. Prefer mornings, want one fun gen ed, and avoid classes back-to-back.">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Lighter term
+            </button>
+          </div>
+          <div class="prompt-actions">
+            <span class="keyboard-hint"><span class="key">⌘</span> <span class="key">↵</span> to generate</span>
+            <button class="generate-btn" id="generateBtn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 5.8L20 10l-5 4.4 1.6 6L12 17.3 7.4 20.4 9 14.4 4 10l6.1-1.2z"/></svg>
+              Generate schedule
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result area -->
+      <div class="result-area" id="resultArea">
+        <!-- Empty state by default -->
+        <div class="empty-state">
+          <div class="empty-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Your generated schedule will appear here</h3>
+          <p>Describe what you want and BearViSor will build a calendar with the right courses, times, and instructors. You can iterate from there.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="{{ url_for('static', path='/js/builder.js') }}"></script>
+<script src="{{ url_for('static', path='/js/loadprofile.js' )}}"></script>
+
+</body>
+</html>

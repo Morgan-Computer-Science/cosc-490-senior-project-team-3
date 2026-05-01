@@ -7,7 +7,7 @@ from vertexai.agent_engines import AdkApp
 # from vertexai.preview.reasoning_engines import AdkApp
 
 # from agents.root import root_agent
-from agent.agents.root import root_agent
+# from agent.agents.general import root_agent
 
 PROJECT_ID = 'project-d4c985c2-9db2-4bb7-a6c'
 LOCATION = 'us-central1'
@@ -18,24 +18,20 @@ vertexai.init(
     location=LOCATION
 )
 
-llm_model = 'gemini-2.5-flash'
+# llm_model = 'gemini-2.5-flash'
 
 VertexAiSessionService = vertex_ai_session_service.VertexAiSessionService
 
-generation_config = types.GenerateContentConfig(
-    temperature=0.25,
-    max_output_tokens=2500,
-    top_p=0.95
-)
-
 class AgentClass:
-    def __init__(self):
-        self.app = None
+    def __init__(self, llm_agent):
+        self.app = AdkApp(
+            agent=llm_agent
+        )
 
     def session_service_builder(self):
         return VertexAiSessionService()
     
-    def set_up(self):
+    # def set_up(self, agent):
         # academic_advisor = llm_agent.LlmAgent(
         #     name='academic_advisor',
         #     model=llm_model,
@@ -57,10 +53,10 @@ class AgentClass:
         #     tools=[],
         # )
 
-        self.app = AdkApp(
-            agent=root_agent
-            # session_service_builder=self.session_service_builder
-        )
+        # self.app = AdkApp(
+        #     agent=agent
+        #     session_service_builder=self.session_service_builder
+        # )
 
     async def stream_query(self, query: str, user_id: str = 'test'):
         async for chunk in self.app.async_stream_query(
@@ -70,9 +66,9 @@ class AgentClass:
             yield chunk
 
     async def query(self, query: str):
-        async for response in self.stream_query(query):
-            return response
+        response = None
+        
+        async for event in self.stream_query(query):
+            response = event
 
-agent = AgentClass()
-
-agent.set_up()
+        return response['content']['parts'][0]['text']

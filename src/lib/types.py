@@ -20,6 +20,9 @@ class User(BaseModel):
     last_name: str = Field(min_length=3, max_length=20, pattern="^[a-zA-Z]+$")
     password_hash: str
     discipline: str
-    credits_earned: int
-    privilege: int
+    begin_term: int
     created_at: str
+
+class Query(BaseModel):
+    id: int
+    msg: str
