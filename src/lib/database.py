@@ -6,7 +6,7 @@ import os
 from datetime import datetime, timedelta
 from typing import Annotated, Optional
 
-from lib.types import UserRegistration, UserLogin, User
+from lib.types import UserRegistration, UserLogin, User, Course
 
 __dir__: str = os.path.dirname(__file__)
 
@@ -91,7 +91,6 @@ class Database:
 
     def login_user(self, data: UserLogin):
         hash_object = hashlib.sha256(data.password.encode())
-
         digest: str = hash_object.hexdigest()
 
         cursor: sqlite3.Cursor = self.connection.cursor()

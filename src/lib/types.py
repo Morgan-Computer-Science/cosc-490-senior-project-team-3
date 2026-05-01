@@ -1,5 +1,13 @@
 from pydantic import BaseModel, Field
 
+class Course(BaseModel):
+    id: int
+    title: str
+    discipline: str
+    code: int
+    credits: int
+    description: str | None = None
+
 class UserRegistration(BaseModel):
     first_name: str = Field(min_length=3, max_length=20, pattern="^[a-zA-Z]+$")
     last_name: str = Field(min_length=3, max_length=20, pattern="^[a-zA-Z]+$")

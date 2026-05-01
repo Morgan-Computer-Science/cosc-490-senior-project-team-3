@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Academic Portal</title>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/cources.css">
+</head>
+<body>
+    <div class="courses-container">
+        <div class="courses-header">
+            <h1>Available Courses</h1>
+            <p>Explore our comprehensive course catalog across multiple disciplines</p>
+        </div>
+
+        <div id="courses-content" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p>Loading courses...</p>
+        </div>
+    </div>
+
+    <script>
+        // Emoji map for disciplines
+        const disciplineEmojis = {
+            'COSC': '💻',
+            'MATH': '📐',
+            'ENGL': '📚',
+            'HUMA': '🎓',
+            'WGST': '👥',
+            'CHEM': '🧪',
+            'EEGR': '⚡',
+            'CLCO': '☁️',
+            'ORNS': '🎓'
+        };
+
+        // Discipline names for display
+        const disciplineNames = {
+            'COSC': 'Computer Science',
+            'MATH': 'Mathematics',
+            'ENGL': 'English',
+            'HUMA': 'Humanities',
+            'WGST': 'Women\'s & Gender Studies',
+            'CHEM': 'Chemistry',
+            'EEGR': 'Electrical Engineering',
+            'CLCO': 'Cloud Computing',
+            'ORNS': 'Orientation'
+        };
+
+        // Fetch and render courses
+        async function loadCourses() {
+            const container = document.getElementById('courses-content');
+            
+            try {
+                const response = await fetch('/api/v1/courses');
+                if (!response.ok) throw new Error('Failed to fetch courses');
+                
+                const courses = await response.json();
+                
+                // Group courses by discipline
+                const groupedByDiscipline = {};
+                courses.forEach(course => {
+                    if (!groupedByDiscipline[course.discipline]) {
+                        groupedByDiscipline[course.discipline] = [];
+                    }
+                    groupedByDiscipline[course.discipline].push(course);
+                });
+                
+                // Clear container and build HTML
+                container.innerHTML = '';
+                
+                // Sort disciplines alphabetically
+                const sortedDisciplines = Object.keys(groupedByDiscipline).sort();
+                
+                sortedDisciplines.forEach(discipline => {
+                    const courses = groupedByDiscipline[discipline];
+                    const emoji = disciplineEmojis[discipline] || '📖';
+                    const name = disciplineNames[discipline] || discipline;
+                    
+                    const section = document.createElement('div');
+                    section.className = 'curriculum-section';
+                    
+                    const title = document.createElement('h2');
+                    title.className = `curriculum-title ${discipline.toLowerCase()}`;
+                    title.textContent = `${emoji} ${name}`;
+                    section.appendChild(title);
+                    
+                    const grid = document.createElement('div');
+                    grid.className = 'courses-grid';
+                    
+                    courses.forEach(course => {
+                        const card = document.createElement('div');
+                        card.className = `course-card ${discipline.toLowerCase()}`;
+                        
+                        card.innerHTML = `
+                            <div class="course-code">${course.discipline} ${course.code}</div>
+                            <h3 class="course-title">${course.title}</h3>
+                            <p class="course-description">
+                                ${course.description || 'No description available.'}
+                            </p>
+                            <div class="course-info">
+                                <span class="course-credits">Credits: ${course.credits}</span>
+                            </div>
+                        `;
+                        
+                        grid.appendChild(card);
+                    });
+                    
+                    section.appendChild(grid);
+                    container.appendChild(section);
+                });
+                
+            } catch (error) {
+                console.error('Error loading courses:', error);
+                container.innerHTML = '<p style="color: red;">Failed to load courses. Please try again later.</p>';
+            }
+        }
+        
+        // Load courses when page loads
+        document.addEventListener('DOMContentLoaded', loadCourses);
+    </script>
+</body>
+</html>
