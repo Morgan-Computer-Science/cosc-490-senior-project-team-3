@@ -12,7 +12,7 @@ async def signup(data: Annotated[UserRegistration, Form()]) -> None:
     if (data.password != data.confirm_password):
         return False
     
-    user: User = database.register_user(data)
+    success, user = database.register_user(data)
 
     # create login session
 

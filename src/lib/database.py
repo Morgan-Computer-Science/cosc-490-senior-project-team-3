@@ -79,9 +79,9 @@ class Database:
         cursor: sqlite3.Cursor = self.connection.cursor()
 
         cursor.execute('''
-            INSERT INTO `students` (email, first_name, last_name, password_hash, discipline, credits_earned, privilege)
-            VALUES (?, ?, ?, ?, ?, ?, ?);
-        ''', (data.email, data.first_name, data.last_name, digest, 'Computer Science', 0, 1))
+            INSERT INTO `students` (email, first_name, last_name, password_hash, discipline, begin_term)
+            VALUES (?, ?, ?, ?, ?, ?);
+        ''', (data.email, data.first_name, data.last_name, digest, 'Computer Science', 1))
 
         self.connection.commit()
 
